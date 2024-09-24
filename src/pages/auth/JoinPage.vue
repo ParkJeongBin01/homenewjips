@@ -6,7 +6,7 @@ import authApi from '@/api/authApi';
 const router = useRouter();
 const avatar = ref(null);
 const checkError = ref('');
-  
+
 //////////////////////////////////////////////////////////
 const member = reactive({
   id: 'test',
@@ -16,7 +16,7 @@ const member = reactive({
   password2: '1212',
   avatar: null,
 });
-  //////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 const disableSubmit = ref(true);
 const checkId = async () => {
   if (!member.id) {
@@ -118,6 +118,5 @@ const join = async () => {
         확인
       </button>
     </form>
-
-</div>
+  </div>
 </template>
