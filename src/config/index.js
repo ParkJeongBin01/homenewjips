@@ -16,6 +16,10 @@ export default {
       title: '지도',
       url: 'notice/list',
     },
+    {
+      title: '채팅',
+      url: '/chat',
+    },
   ],
 
   accoutMenus: {
