@@ -5,6 +5,7 @@ import boardRotes from './board';
 import travelRoutes from './travel';
 import galleryRoutes from './gallery';
 import mapRoutes from './map';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
