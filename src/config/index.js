@@ -6,7 +6,7 @@ export default {
     },
     {
       title: '버디즈',
-      url: '/travel/list',
+      url: '/buddiz',
     },
     {
       title: '환율',
