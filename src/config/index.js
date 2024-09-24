@@ -1,7 +1,7 @@
 export default {
   menus: [
     {
-      title: '지도',
+      title: '공지사항',
       url: '/board/list',
     },
     {
@@ -13,7 +13,7 @@ export default {
       url: '/gallery/list',
     },
     {
-      title: '공지사항',
+      title: '지도',
       url: 'notice/list',
     },
   ],
