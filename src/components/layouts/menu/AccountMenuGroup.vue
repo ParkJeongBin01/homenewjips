@@ -21,7 +21,7 @@ const id = computed(() => auth.id);
     </template>
     <template v-else>
       <MenuItem :menu="login" />
-      <MenuItem :menu="join" />
+      <!-- <MenuItem :menu="join" /> -->
     </template>
   </ul>
 </template>

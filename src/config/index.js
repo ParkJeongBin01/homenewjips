@@ -21,7 +21,7 @@ export default {
   accoutMenus: {
     login: {
       url: '/auth/login',
-      title: '마이페이지',
+      title: 'Login',
     },
 
     join: {
