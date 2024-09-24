@@ -1,5 +1,5 @@
 <script setup>
-import Header from './Header.vue';
+//import Header from './Header.vue';
 import NavBar from './NavBar.vue';
 import Footer from './Footer.vue';
 </script>
@@ -7,7 +7,7 @@ import Footer from './Footer.vue';
 <template>
   <div class="fauid-container">
     <NavBar />
-    <div class="content my-5 px-3">
+    <div class="content">
       <slot></slot>
     </div>
     <Footer />

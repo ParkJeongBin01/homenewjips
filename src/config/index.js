@@ -16,12 +16,16 @@ export default {
       title: '지도',
       url: 'notice/list',
     },
+    {
+      title: '채팅',
+      url: '/chat',
+    },
   ],
 
   accoutMenus: {
     login: {
       url: '/auth/login',
-      title: '마이페이지',
+      title: 'Login',
     },
 
     join: {
