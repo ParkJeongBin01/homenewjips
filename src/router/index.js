@@ -5,6 +5,7 @@ import boardRotes from './board';
 import travelRoutes from './travel';
 import galleryRoutes from './gallery';
 import mapRoutes from './map';
+import chatRoutes from './chat';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,6 +20,7 @@ const router = createRouter({
     ...travelRoutes,
     ...galleryRoutes,
     ...mapRoutes,
+    ...chatRoutes
   ],
 });
 
