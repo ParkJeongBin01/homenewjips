@@ -1,34 +1,32 @@
 export default {
-  title: 'KB Fullstack',
-  subtitle: '(Vue+Spring)',
   menus: [
     {
-      title: '게시판',
+      title: '지도',
       url: '/board/list',
-      icon: 'fa-solid fa-paste',
     },
     {
-      title: '여행',
+      title: '버디즈',
       url: '/travel/list',
-      icon: 'fa-solid fa-plane-departure',
     },
     {
-      title: '갤러리',
+      title: '환율',
       url: '/gallery/list',
-      icon: 'fa-regular fa-images',
+    },
+    {
+      title: '공지사항',
+      url: 'notice/list',
     },
   ],
 
   accoutMenus: {
     login: {
       url: '/auth/login',
-      title: '로그인',
-      icon: 'fa-solid fa-right-to-bracket',
+      title: 'Login',
     },
 
     join: {
       url: '/auth/join',
-      title: '회원가입',
+      title: '마이페이지',
       icon: 'fa-solid fa-user-plus',
     },
   },
