@@ -28,7 +28,11 @@ const page = ref({
   totalCount: 18,
 });
 
-const articles = computed(() => page.value.boardList);
+const articles = computed(() => {
+  const start = (pageRequest.page - 1) * pageRequest.amount;
+  const end = start + pageRequest.amount;
+  return page.value.boardList.slice(start, end);
+});
 
 const pageRequest = reactive({
   page: parseInt(route.query.page) || 1,
@@ -38,7 +42,6 @@ const pageRequest = reactive({
   types: [],
 });
 
-// 페이지네이션 페이지 변경
 const handlePageChange = async (pageNum) => {
   router.push({
     query: {
@@ -51,30 +54,32 @@ const handlePageChange = async (pageNum) => {
   });
 };
 </script>
-
 <template>
-  <div>
-    <h1 class="mb-3">공지 사항</h1>
-
-    <div class="mt-4">
+  <div class="notice-header-wrapper">
+    <div class="notice-header">
+      <h1 class="mb-3">공지 사항</h1>
       <div class="form-label">새로운 소식과 공지를 확인하세요!</div>
-      <!-- 공지 사항을 article로 구성 -->
-      <div class="row row-cols-md-2 row-cols-1 gy-md-5 gy-4 mb-lg-5 mb-4">
-        <article class="col pb-2 pb-md-1" v-for="item in articles" :key="item.id">
+    </div>
+  </div>
+  <div class="row row-cols-md-2 row-cols-1 gy-md-5 gy-4 mb-lg-5 mb-4 notice-content">
+    <article class="col pb-2 pb-md-1" v-for="item in articles" :key="item.id">
           <a class="d-block position-relative mb-3" :href="`/board/${item.id}`">
+<<<<<<< HEAD
+            <img class="d-block rounded-3 article-image"
+                 :src="item.imageUrl || 'https://image.ajunews.com/content/image/2022/04/04/20220404181310254680.jpg'"
+                 alt="공지 이미지">
+=======
             <img class="d-block rounded-3" :src="item.imageUrl || 'https://image.ajunews.com/content/image/2022/04/04/20220404181310254680.jpg'" alt="공지 이미지" />
+>>>>>>> 8fabfb0c3dff8ca98a1f8d047d03ab5e67ee5937
           </a>
           <a class="fs-sm text-uppercase text-decoration-none" href="#">{{ item.title }}</a>
           <h3 class="h5 mb-2 pt-1">
             <a class="nav-link" :href="`/board/${item.id}`">{{ item.title }}</a>
           </h3>
           <p class="mb-3">{{ item.content }}</p>
-          <a class="d-flex align-items-center text-decoration-none" :href="`/board/${item.id}`">
-            <!--            <button class="btn btn-primary">자세히 보기</button>-->
-          </a>
         </article>
       </div>
-    </div>
+
 
     <!-- 페이지네이션 -->
     <div class="my-5 d-flex justify-content-center">
@@ -92,5 +97,38 @@ const handlePageChange = async (pageNum) => {
         <template #last-page-button><i class="fa-solid fa-forward-fast"></i></template>
       </vue-awesome-paginate>
     </div>
-  </div>
+
 </template>
+
+<style scoped>
+.notice-header-wrapper {
+  background-color: #f7f7f7;  /* 회색 배경 */
+  width: 100vw;               /* 화면 전체 너비를 차지 */
+  margin-left: calc(-50vw + 50%); /* 중앙 정렬을 유지하며 화면 끝까지 확장 */
+  margin-right: calc(-50vw + 50%); /* 오른쪽 여백 제거 */
+  padding: 40px;
+}
+
+.article-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+/* 공지사항과 게시글 사이에 간격 추가 */
+.notice-content {
+  margin-top: 30px;           /* 공지사항과 게시글 사이에 30px 간격 */
+}
+
+article {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .article-image {
+    height: 300px; /* 큰 화면에서 높이를 조금 더 늘림 */
+    object-fit: cover;
+  }
+}
+</style>
