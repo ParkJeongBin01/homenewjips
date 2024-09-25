@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../pages/HomePage.vue';
-import authRotes from './auth';
-import boardRotes from './board';
+import authRoutes from './auth';
+import boardRoutes from './board';
 import mapRoutes from './map';
 import chatRoutes from './chat';
+import blameRoutes from './blame';
 import buddizRoutes from './buddiz';
 import mypageRoutes from './mypage';
 import JoinPage from '@/pages/auth/JoinPage.vue';
@@ -15,7 +16,8 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomePage,
-
+    },
+    {
       path: '/auth/join',
       name: 'joinPage',
       component: JoinPage,
@@ -31,10 +33,11 @@ const router = createRouter({
       component: Bdp,
       props: true, // URL 파라미터를 props로 전달
     },
-    ...authRotes,
-    ...boardRotes,
+    ...authRoutes,
+    ...boardRoutes,
     ...mapRoutes,
     ...chatRoutes,
+    ...blameRoutes,
     ...buddizRoutes,
     ...mypageRoutes,
   ],
