@@ -1,3 +1,4 @@
+
 import { isAuthenticated } from '@/util/guards';
 
 export default [

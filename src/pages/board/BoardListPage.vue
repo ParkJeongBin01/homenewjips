@@ -98,7 +98,7 @@ const handlePageChange = async (pageNum) => {
 
 <style scoped>
 .notice-header-wrapper {
-  background-color: #f7f7f7;  /* 회색 배경 */
+  background-color: #F5F6F7;  /* 회색 배경 */
   width: 100vw;               /* 화면 전체 너비를 차지 */
   margin-left: calc(-50vw + 50%); /* 중앙 정렬을 유지하며 화면 끝까지 확장 */
   margin-right: calc(-50vw + 50%); /* 오른쪽 여백 제거 */
