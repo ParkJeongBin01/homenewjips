@@ -242,7 +242,7 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #ff4500;
+  border-color: #ff8c00;
   box-shadow: 0 0 5px rgba(255, 69, 0, 0.3);
 }
 
@@ -325,7 +325,7 @@ input::placeholder {
 .submit-btn {
   width: 300px;
   padding: 1rem;
-  background-color: #ff4500;
+  background-color: #ff8c00;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -337,7 +337,7 @@ input::placeholder {
 }
 
 .submit-btn:hover {
-  background-color: #e84300;
+  background-color: #ff8c00;
 }
 
 .drag-and-drop-box {
@@ -354,7 +354,7 @@ input::placeholder {
 }
 
 .upload-btn {
-  background-color: #ff4500;
+  background-color: #ff8c00;
   color: #fff;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
