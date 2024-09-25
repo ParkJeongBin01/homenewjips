@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { MARKER_SPRITE_POSITION } from './MarkerSprite';
+import { MARKER_SPRITE_POSITION } from './markerSprite';
 
 export function useMap(HOME_PATH) {
   const markers = ref([]);
@@ -52,6 +52,7 @@ export function useMap(HOME_PATH) {
         selectedMarker.value = {
           latitude: marker.getPosition().lat(),
           longitude: marker.getPosition().lng(),
+          title: key,
         };
       });
 
@@ -64,7 +65,7 @@ export function useMap(HOME_PATH) {
   };
 
   // 마커 업데이트 함수
-  const updateMarkers = (map, markers) => {
+  const updateMarkers = (map, markers, emit) => {
     const mapBounds = map.getBounds();
 
     markers.forEach((marker) => {
@@ -72,12 +73,16 @@ export function useMap(HOME_PATH) {
 
       if (mapBounds.hasLatLng(position)) {
         showMarker(map, marker);
+        // 마커가 보일 때 컴포넌트를 렌더링
+        emit('markerVisible', marker);
       } else {
         hideMarker(marker);
       }
     });
+
     console.log('penguin update log');
   };
+
   const showMarker = (map, marker) => {
     if (marker.getMap()) return;
     marker.setMap(map);
