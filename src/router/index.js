@@ -9,7 +9,6 @@ import Blp from '@/pages/board/BoardListPage.vue';
 import Bdp from '@/pages/board/BoardDetailPage.vue';
 import JoinPage from '@/pages/auth/JoinPage.vue';
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -33,11 +32,14 @@ const router = createRouter({
       component: Bdp,
       props: true  // URL 파라미터를 props로 전달
     },
-    ...authRotes,
-    ...boardRotes,
+    ...authRoutes,
+    ...boardRoutes,
     ...mapRoutes,
     ...chatRoutes,
     ...buddizRoutes,
+    ...loanRoutes, // Add loan routes here    
+    ...guideRoutes, // Add guide routes here
+    ...buddizForm, // Add buddizForm routes here
   ],
 });
 
