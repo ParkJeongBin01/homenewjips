@@ -23,10 +23,6 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
           style="height: 100%; max-height: 50px"
         />
       </router-link>
-
-      <!-- 햄버거버튼 -->
-      <!-- <button class="navbar-toggler" type="button" @click="toggleNavShow" aria-controls="collapsibleNavbar" aria-expanded="state.isNavShow" aria-label="Toggle navigation"> -->
-
       <button
         class="navbar-toggler"
         type="button"
@@ -39,15 +35,11 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
 
       <div :class="navClass" id="collapsibleNavbar" style="flex-grow: 0">
         <div style="flex-direction: row; display: flex">
-          <!-- <div :class="navClass" id="collapsibleNavbar" style="display: flex; flex-grow: unset;"> -->
-          <!-- <div style="flex-direction: row; display: flex;"> -->
           <MenuGroup :menus="config.menus" />
           <AccountMenuGroup />
         </div>
       </div>
     </div>
-    <!-- </div> -->
-    <!-- </div> -->
   </nav>
 </template>
 <style></style>

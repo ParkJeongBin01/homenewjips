@@ -6,7 +6,7 @@ import authApi from '@/api/authApi';
 const router = useRouter();
 const avatar = ref(null);
 const checkError = ref('');
-  
+
 //////////////////////////////////////////////////////////
 const member = reactive({
   id: 'test',
@@ -16,7 +16,7 @@ const member = reactive({
   password2: '1212',
   avatar: null,
 });
-  //////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 const disableSubmit = ref(true);
 const checkId = async () => {
   if (!member.id) {
@@ -56,7 +56,79 @@ const join = async () => {
 </script>
 
 <template>
-  <div class="mt-5 mx-auto" style="width: 500px">
+  <!-- 배경색 -->
+  <body class="bg-light">
+    <main class="page-wrapper d-flex flex-column" style="min-height: 100vh">
+      <div class="container-fluid d-flex h-100 align-items-center justify-content-center py-4">
+        <!-- style="max-width: 100%; height: 100vh;" > 이러면 화면 길어짐;;;; -->
+        <div class="card card-body" style="max-width: 70%; max-height: 600px">
+          <a class="position-absolute top-1 end-0 nav-link fs-sm py-1 px-2 me-3" href="#" onclick="window.history.go(-1); return false;">
+            <i class="fa-solid fa-arrow-left fs-base me-2"></i>Go back</a
+          >
+          <!-- 양쪽 화면 -->
+          <div class="row mx-0 align-item-center">
+            <!-- 왼쪽화면 -->
+            <div class="col-md-6 border-end-md p-sm-1" style="display: flex; flex-direction: column; align-items: center; margin-top: 3%">
+              <h3 class="h3 mb-4 mb-sm-5">
+                NewJips에 가입하세요!<br />
+                당신을 위한 집과 버디즈를 만나요
+              </h3>
+
+              <ul class="list mb-4 mb-sm-5" style="margin-bottom: 0%">
+                <li class="d-flex mb-2">
+                  <i class="fa-regular fa-circle-check"><span> 원하는 집을 찜하세요.</span></i>
+                </li>
+                <li class="d-flex mb-2">
+                  <i class="fa-regular fa-circle-check"><span> 나와 딱 맞는 버디즈를 찾으세요.</span></i>
+                </li>
+                <li class="d-flex mb-2">
+                  <i class="fa-regular fa-circle-check"><span> 나도 또다른 버디즈로 활동해보세요.</span></i>
+                </li>
+              </ul>
+
+              <img src="@/assets/images/joinimg.png" style="height: 100%; max-height: 40%" />
+            </div>
+
+            <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ오른쪽 화면ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+            <!-- col-md-6중간화면일때화면너비50% px-2좌우패딩 pt=2위쪽패딩 pb-4아래쪽패딩 px-sm-5작은화면일때수평패딩 pb-sm-5작은화면일때아래쪽패딩 pt-md-5증간화면일때위쪽패딩 -->
+            <div class="col-md-6 px-2 pt-2 pb-2 px-sm-2 pb-sm-5 pt-md-5">
+              <a class="btn btn-outline-info w-100 mb-1" href="#">
+                <i class="fa-brands fa-google fs-lg me-1"></i>
+                Sign in with Google
+              </a>
+              <div class="d-flex align-items-center py-1 mb-1">
+                <hr class="w-100" />
+                <div class="px-3">or</div>
+                <hr class="w-100" />
+              </div>
+              <form class="needs-validation" @submit.prevent="login" novalidate>
+                <div class="mb-4">
+                  <label class="form-label" for="signin-name">Fullname</label>
+                  <input class="form-control" type="text" id="signin-name" placeholder="Enter your neme" required />
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="signin-email">Email</label>
+                  <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required />
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="signin-password">Password</label>
+                  <input class="form-control" type="password" id="signin-password" required />
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="signin-password-confirm">Confirm password</label>
+                  <input class="form-control" type="password" id="signin-password" required />
+                </div>
+                <button class="btn-orange btn-lg w-100" type="submit">Sign in</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</template>
+
+<!-- <div class="mt-5 mx-auto" style="width: 500px">
     <h1 class="my-5">
       <i class="fa-solid fa-user-plus"></i>
       회원 가입
@@ -118,6 +190,4 @@ const join = async () => {
         확인
       </button>
     </form>
-
-</div>
-</template>
+  </div> -->

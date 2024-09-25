@@ -1,166 +1,98 @@
 <script setup>
-import { useRoute, useRouter } from 'vue-router';
-import api from '@/api/boardApi';
+import { useRoute } from 'vue-router';
 import { ref } from 'vue';
-import moment from 'moment';
-import { useAuthStore } from '@/stores/auth';
-import { downloadFile } from '@/util/download';
 
-const auth = useAuthStore();
 const route = useRoute();
-const router = useRouter();
-
-const no = route.params.no;
+const no = route.params.no;  // URL에서 공지 ID를 가져옴
 const article = ref({});
 
-const reply = ref('');
+// Mock 데이터
+const mockData = [
+  { id: 1, title: '공지 1', content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 2, title: '공지 2', content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 3, title: '공지 3', content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 4, title: '공지 4', content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 5, title: '공지 5', content:  '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 6, title: '공지 6', content:  '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 7, title: '공지 7', content:  '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 8, title: '공지 8', content:  '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 9, title: '공지 9', content:  '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 10, title: '공지 10',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 11, title: '공지 11',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 12, title: '공지 12',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 13, title: '공지 13',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 14, title: '공지 14',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 15, title: '공지 15',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 16, title: '공지 16',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 17, title: '공지 17',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+  { id: 18, title: '공지 18',content: '안녕하세요.뉴집스 운영팀입니다. 항상 뉴집스을 이용해주시는 파트너 공인중개사분들께 감사드리며, 새로운 개인정보 처리방침 시행에 관한 안내 말씀드립니다. 새롭게 바뀌는 개인정보 처리방침 변경사항을 확인하시어 서비스 이용에 참고해 주시기 바랍니다.'},
+];
 
-const back = () => {
-  router.push({ name: 'board/list', query: route.query });
+// 공지사항 찾기
+const fetchArticle = () => {
+  article.value = mockData.find(item => item.id == no);
 };
 
-const update = () => {
-  router.push({ name: 'board/update', params: { no: no }, query: route.query });
-};
-
-const download = async (no) => {
-  const URL = '/api/board/download/' + no;
-  console.log(URL);
-  await downloadFile(URL);
-};
-
-const remove = async () => {
-  if (!confirm('삭제할까요?')) return;
-  await api.delete(no);
-  router.push({ name: 'board/list', query: route.query });
-};
-
-const load = async () => {
-  article.value = await api.get(no);
-  console.log('DETAIL', article.value);
-};
-
-load();
-
-const sendReply = async ()=> {
-  if(reply.value == null || reply.value.length == 0){
-    alert('내용이 없습니다.');
-    return;
-  }
-  const sendObj = {bno:no,content:reply.value,writer:auth.id};
-  const result = await api.sendReply(sendObj);
-  console.log(result);
-  if(result != null){
-    alert('댓글이 등록 되었습니다.');
-    load();
-  }else{
-    alert('댓글 등록에 실패 하였습니다.');
-  }
-}
-
-const deleteReply = async (rno)=> {
-  const result = await api.deleteReply(rno);
-  console.log(result);
-  if(result != null){
-    alert('댓글이 삭제 되었습니다.');
-    load();
-  }else{
-    alert('댓글 삭제에 실패 하였습니다.');
-  }
-}
-
+fetchArticle();
 </script>
 
 <template>
-  <h1>{{ article.title }}</h1>
-  <div class="my-3 d-flex justify-content-between">
-    <div>
-      <i class="fa-solid fa-user"></i>
-      {{ article.memberName }} ({{ article.memberId }})
-    </div>
-    <div>
-      <i class="fa-regular fa-clock"></i>
-      {{ moment(article.updateDate).format('YYYY-MM-DD HH:mm') }}
+  <div class="notice-header-wrapper">
+    <div class="notice-header">
+      <h1 class="mb-3">공지 사항</h1>
+      <div class="form-label">새로운 소식과 공지를 확인하세요!</div>
     </div>
   </div>
 
-  <hr />
+  <div class="container mt-5 mb-md-4 py-5">
+    <!-- 공지 제목과 메타 정보 -->
+    <h1 class="h2 mb-4">{{ article.title }}</h1>
+    <div class="mb-4 pb-1">
+      <ul class="list-unstyled d-flex flex-wrap mb-0 text-nowrap">
+        <li class="me-3"><i class="fi-calendar-alt me-2 mt-n1 opacity-60"></i>Mar 18</li>
+      </ul>
+    </div>
+    <!-- 공지 내용 -->
+    <div class="mb-4 pb-md-3"><img class="rounded-3" src="https://image.ajunews.com/content/image/2022/04/04/20220404181310254680.jpg" alt="Post image"></div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h6>{{ article.content }}</h6>
+        <h4>[주요 개정 사항]</h4>
+        <h5>뉴집스 개인정보 처리방침(이하 ‘처리방침’이라 한다.)</h5>
+        <p>주요 개정사항은 아래와 같습니다.</p>
+        <p>1)「정보통신망 이용촉진 및 정보보호 등에 관한 법률」및「개인정보 보호법」개정 내용 반영
+          개인정보보호 관련 주요 법령 및 고시에 의거하여 처리방침 내 신규 조항 마련 및 기조항의 내용을
+          보강하여 개정
+          ‘제5조 정보주체의 권리∙의무 및 행사방법’, ‘제8조 개인정보의 안전성 확보조치’, ‘제11조 개인정보 열람청구’, ‘제12조권익침해 구제방법’</p>
+        <p>
+          2)개인정보파일 운용 현황 최신화
+          개인정보의 ‘처리 목적’, ‘보유기간’, ‘처리항목’ 등 운용 현황 업데이트
+        </p>
+        <p>3)(아무소리)(아무소리)(아무소리)「정보통신망 이용촉진 및 정보보호 등에 관한 법률」및「개인정보 보호법」개정 내용 반영
+          개인정보보호 관련 주요 법령 및 고시에 의거하여 처리방침 내 신규 조항 마련 및 기조항의 내용을
+          보강하여 개정
+          ‘제5조 정보주체의 권리∙의무 및 행사방법’, ‘제8조 개인정보의 안전성 확보조치’, ‘제11조 개인정보 열람청구’, ‘제12조권익침해 구제방법’</p>
 
-  <div class="text-end">
-    <div v-for="file in article.boardAttachFileList" :key="file.fno" class="attach">
-      <span @click="download(file.fno)">
-        <i class="fa-solid fa-paperclip"></i>
-        {{ file.originalFilename }}
-      </span>
+        <p>4)(아무소리)(아무소리)(아무소리)(아무소리)개인정보파일 운용 현황 최신화
+          개인정보의 ‘처리 목적’, ‘보유기간’, ‘처리항목’ 등 운용 현황 업데이트
+        </p>
+
+        <p>5)(아무소리)(아무소리)(아무소리)(아무소리)「정보통신망 이용촉진 및 정보보호 등에 관한 법률」및「개인정보 보호법」개정 내용 반영
+          개인정보보호 관련 주요 법령 및 고시에 의거하여 처리방침 내 신규 조항 마련 및 기조항의 내용을
+          보강하여 개정
+          ‘제5조 정보주체의 권리∙의무 및 행사방법’, ‘제8조 개인정보의 안전성 확보조치’, ‘제11조 개인정보 열람청구’, ‘제12조권익침해 구제방법’</p>
+
+      </div>
     </div>
   </div>
-
-  <div class="content">{{ article.content }}</div>
-
-  <div class="my-5">
-    <button class="btn btn-primary me-2" @click="back"><i class="fa-solid fa-list"></i> 목록</button>
-
-    <!-- 로그인 사용자와 작성자가 같은 경우 -->
-    <template v-if="auth.id == article.memberId">
-      <button class="btn btn-primary me-2" @click="update"><i class="fa-regular fa-pen-to-square"></i> 수정</button>
-      <button class="btn btn-danger" @click="remove"><i class="fa-solid fa-trash-can"></i> 삭제</button>
-    </template>
-  </div>
-
-
-  <div class="row mt-2">
-    <div class="col-11">
-      <label class="form-label">댓글</label>
-      <input  v-model="reply"  type="text" class="form-control" placeholder="내용을 입력하세요.">
-    </div>
-    <div class="col-1">
-      <label  class="form-label"> &nbsp <span class="text-body-secondary"></span></label>
-      <button class="form-control btn btn-primary" @click="sendReply()">작성</button>
-    </div>
-  </div>
-
-  <table class="table table-striped mt-4">
-    
-
-    <thead>
-      <tr>
-        <th style="width: 60px">No</th>
-        <th>댓글 내용</th>
-        <th style="width: 150px">작성자</th>
-        <th style="width: 120px">작성일</th>
-        <th style="width: 80px"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr v-for="reply in article.replyList" :key="reply.rno">
-        <td>{{ reply.rno }}</td>
-        <td>
-          {{ reply.content }}
-        </td>
-        <td>{{ reply.memberName }}({{reply.memberId}})</td>
-        <td>{{ moment(reply).format('YYYY-MM-DD') }}</td>
-        <td> 
-          <span v-if="reply.memberId == auth.id">
-            <button class="btn btn-close" @click="deleteReply(reply.rno)"></button> 
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
 </template>
 
-
-
-
-
 <style scoped>
-.attach {
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-.content {
-  white-space: pre-line;
+.notice-header-wrapper {
+  background-color: #F5F6F7;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 40px;
 }
 </style>

@@ -1,20 +1,24 @@
 export default {
   menus: [
     {
-      title: '지도',
+      title: '공지사항',
       url: '/board/list',
     },
     {
       title: '버디즈',
-      url: '/travel/list',
+      url: '/buddiz',
     },
     {
       title: '환율',
       url: '/gallery/list',
     },
     {
-      title: '공지사항',
+      title: '지도',
       url: 'notice/list',
+    },
+    {
+      title: '채팅',
+      url: '/chat',
     },
   ],
 

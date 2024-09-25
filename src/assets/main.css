@@ -57,56 +57,11 @@
   background-color: #2988c8;
 }
 
-/*
-* ===================================================
-*     NoUI Slider theming
-* ===================================================
-*/
-.noUi-target {
-  background: #ddd;
-  border-radius: 0;
+.btn-orange {
+  background-color: #ff8f17;
   border: none;
-  box-shadow: none;
-  height: 3px;
-  margin-top: 10px;
-}
-
-.noUi-horizontal .noUi-handle {
-  width: 3px;
-  height: 14px;
-  right: -2px !important;
-  top: -5px;
-  background: #343a40;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  box-shadow: none;
-  outline: none;
-}
-
-.noUi-horizontal .noUi-handle::before,
-.noUi-horizontal .noUi-handle::after {
-  display: none;
-}
-
-.noUi-connect {
-  background: #343a40;
-}
-
-.text-primary .noUi-handle,
-.text-primary .noUi-connect {
-  background: #4e66f8;
-}
-
-.text-secondary .noUi-handle,
-.text-secondary .noUi-connect {
-  background: #e83e8c;
-}
-
-.nouislider-values {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  color: #6c757d;
-  font-size: 0.875rem;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 15px; /* 패딩 조정 */
+  font-size: 1.25rem; /* 글꼴 크기 조정 */
 }
