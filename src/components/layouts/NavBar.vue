@@ -17,12 +17,15 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
   <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
-        <img src="@/assets/images/newjips.png" alt="Brand Logo" style="height: 100%; max-height: 50px;"></img>
+        <img
+          src="@/assets/images/newjips.png"
+          alt="Brand Logo"
+          style="height: 100%; max-height: 50px"
+        />
       </router-link>
 
       <!-- 햄버거버튼 -->
       <!-- <button class="navbar-toggler" type="button" @click="toggleNavShow" aria-controls="collapsibleNavbar" aria-expanded="state.isNavShow" aria-label="Toggle navigation"> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" @click="toggleNavShow">
 
       <button
         class="navbar-toggler"
@@ -34,19 +37,17 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
         <span class="navbar-toggler-icon"></span>
       </button>
 
-
       <div :class="navClass" id="collapsibleNavbar" style="flex-grow: 0">
         <div style="flex-direction: row; display: flex">
-        <!-- <div :class="navClass" id="collapsibleNavbar" style="display: flex; flex-grow: unset;"> -->
-        <!-- <div style="flex-direction: row; display: flex;"> -->
-        <MenuGroup :menus="config.menus" />
-        <AccountMenuGroup />
-      </div>
+          <!-- <div :class="navClass" id="collapsibleNavbar" style="display: flex; flex-grow: unset;"> -->
+          <!-- <div style="flex-direction: row; display: flex;"> -->
+          <MenuGroup :menus="config.menus" />
+          <AccountMenuGroup />
+        </div>
       </div>
     </div>
     <!-- </div> -->
-  <!-- </div> -->
+    <!-- </div> -->
   </nav>
 </template>
-<style>
-</style>
+<style></style>
