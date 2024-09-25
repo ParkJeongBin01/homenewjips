@@ -56,3 +56,12 @@
 .active-page:hover {
   background-color: #2988c8;
 }
+
+.btn-orange {
+  background-color: #ff8f17;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 15px; /* 패딩 조정 */
+  font-size: 1.25rem; /* 글꼴 크기 조정 */
+}
