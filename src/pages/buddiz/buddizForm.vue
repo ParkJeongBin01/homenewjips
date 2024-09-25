@@ -191,6 +191,7 @@ const submitForm = () => {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
+  background-color: #f5f5f5; /* Light grey background */
 }
 
 .form-title {
