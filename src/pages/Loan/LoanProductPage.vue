@@ -1,39 +1,54 @@
 <template>
-    <div class="loan-page">
-      <!-- Header with grey background -->
-      <section class="header grey-background">
-        <div class="header-content">
-          <h1>외국인을 위한 대출</h1>
-          <p>여러분을 위한 대출정보를 이용하세요!</p>
-        </div>
-      </section>
+  <div class="loan-page">
+    <!-- Header with grey background -->
+    <section class="header grey-background">
+      <div class="header-content">
+        <h1>외국인을 위한 대출</h1>
+        <p>여러분을 위한 대출정보를 이용하세요!</p>
+      </div>
+    </section>
 
-      <!-- Loan Details (Selected Loan Information) -->
-      <section class="loan-details" v-if="selectedLoan">
-        <h3>{{ selectedLoan.name }}</h3>
-        <p><strong>상품 소제목:</strong> {{ selectedLoan.subtitle }}</p>
-        <p><strong>최고 금액:</strong> {{ selectedLoan.maxAmount }}</p>
-        <p><strong>이자율:</strong> {{ selectedLoan.rate }}</p>
-        <p><strong>기간:</strong> {{ selectedLoan.duration }}</p>
-        <p><strong>상환 방법:</strong> {{ selectedLoan.repayment }}</p>
-        <p><strong>금리 및 이용:</strong> {{ selectedLoan.interest }}</p>
-        <p><strong>이용 안내:</strong> {{ selectedLoan.usageInfo }}</p>
-        <a :href="selectedLoan.link" target="_blank">상세정보</a>
-      </section>
-
-      <!-- Loan Cards Section -->
-      <section class="loan-cards">
-        <h2>다른 대출 정보</h2>
-        <div class="loan-grid">
-          <LoanCard
-            v-for="(loan, index) in loans"
-            :key="index"
-            :loan="loan"
-            @click="goToLoanDetail(loan)"
-          />
+    <!-- Loan Details (Selected Loan Information) -->
+    <section class="loan-details" v-if="selectedLoan">
+      <h3>{{ selectedLoan.name }} 전세 자금 대출</h3>
+      <p class="loan-subtitle">{{ selectedLoan.subtitle }}</p>
+      
+      <!-- Highlighted Description -->
+      <div class="highlight-box">
+        임대차 계약을 체결한 외국인 고객 및 소득을 증명할 수 있는 고객 대상. 대출 기간은 3개월에서 2년, 최대 10년까지 연장 가능.
+      </div>
+      
+      <!-- Two-column layout for key details -->
+      <div class="details-grid">
+        <div class="detail-item">
+          <img src="../../assets/icons/calendar-icon.png" alt="Calendar Icon" />
+          <p><strong>기간</strong><br>{{ selectedLoan.duration }}</p>
         </div>
-      </section>
-    </div>
+        <div class="detail-item">
+          <img src="../../assets/icons/hand-icon.png" alt="Money Icon" />
+          <p><strong>최고 금액</strong><br>{{ selectedLoan.maxAmount }}</p>
+        </div>
+      </div>
+
+      <p><strong>상환 방법</strong><br>{{ selectedLoan.repayment }}</p>
+      <p><strong>금리 및 이용</strong><br>{{ selectedLoan.interest }}</p>
+      <p><strong>이용 안내</strong><br>{{ selectedLoan.usageInfo }}</p>
+      <p><strong>상세 주소</strong><br><a :href="selectedLoan.link" target="_blank">{{ selectedLoan.link }}</a></p>
+    </section>
+
+    <!-- Loan Cards Section -->
+    <section class="loan-cards">
+      <h2>다른 대출 정보</h2>
+      <div class="loan-grid">
+        <LoanCard
+          v-for="(loan, index) in loans"
+          :key="index"
+          :loan="loan"
+          @click="goToLoanDetail(loan)"
+        />
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup>
@@ -152,7 +167,7 @@ const goToLoanDetail = (loan) => {
 .loan-details {
   margin-top: 20px;
   padding: 20px;
-  background-color: white;
+  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -162,13 +177,42 @@ const goToLoanDetail = (loan) => {
   margin-bottom: 15px;
 }
 
-.loan-details p {
-  margin: 10px 0;
+.loan-details .loan-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 10px;
 }
 
-.loan-details a {
-  color: #007bff;
-  text-decoration: underline;
+/* Highlighted Description Box */
+.highlight-box {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Two-column layout for duration and amount */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+}
+
+.detail-item img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.detail-item p {
+  margin: 0;
 }
 
 /* Loan Cards Section */
@@ -184,15 +228,15 @@ const goToLoanDetail = (loan) => {
 /* Loan grid with smaller cards */
 .loan-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
 .loan-card {
-  background-color: #446688; /* Solid blue background */
+  background-color: #446688;
   padding: 20px;
   border-radius: 12px;
-  color: white !important; /* Ensure all text color is white */
+  color: white !important;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
@@ -200,31 +244,28 @@ const goToLoanDetail = (loan) => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .loan-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Hover effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Title inside the card */
+.loan-card * {
+  color: white !important;
+}
+
 .loan-card h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: white !important; /* Set title color to white */
 }
 
-/* Subtitle or description inside the card */
 .loan-card p {
   font-size: 1rem;
-  color: white !important; /* Set paragraph text to white */
 }
 
-/* Interest rate or other specific text */
 .loan-card .rate {
   font-size: 1rem;
-  color: white !important; /* Ensure rate text is white */
 }
-
 </style>
