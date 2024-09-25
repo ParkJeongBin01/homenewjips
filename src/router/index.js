@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomePage from '../pages/HomePage.vue';
-import authRoutes from './auth';
-import boardRoutes from './board';
-import mapRoutes from './map';
-import chatRoutes from './chat';
-import buddizRoutes from './buddiz';
-import loanRoutes from './loan'; // Import loan routes
-import guideRoutes from './guide'; // Import guide routes
-import buddizForm from './buddizForm';
-
+import HomePage from '/src/pages/HomePage.vue';
+import authRoutes from '/src/router/auth.js';
+import boardRoutes from '/src/router/board.js';
+import mapRoutes from '/src/router/map.js';
+import chatRoutes from '/src/router/chat.js';
+import buddizRoutes from '/src/router/buddiz.js';
+import loanRoutes from '/src/router/loan.js'; // Import loan routes
+import guideRoutes from '/src/router/guide.js'; // Import guide routes
+import buddizForm from '/src/router/buddizForm.js'; // Import buddizForm routes
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,15 +23,9 @@ const router = createRouter({
     ...chatRoutes,
     ...buddizRoutes,
     ...loanRoutes, // Add loan routes here    
-    ...authRotes,
-    ...boardRotes,
-    ...mapRoutes,
-    ...chatRoutes,
-    ...buddizRoutes,
-    ...guideRoutes
-    ...buddizForm,
+    ...guideRoutes, // Add guide routes here
+    ...buddizForm, // Add buddizForm routes here
   ],
-  
 });
 
 export default router;
