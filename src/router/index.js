@@ -5,6 +5,7 @@ import boardRotes from './board';
 import mapRoutes from './map';
 import chatRoutes from './chat';
 import buddizRoutes from './buddiz';
+import mypageRoutes from './mypage';
 import JoinPage from '@/pages/auth/JoinPage.vue';
 
 const router = createRouter({
@@ -24,6 +25,7 @@ const router = createRouter({
     ...mapRoutes,
     ...chatRoutes,
     ...buddizRoutes,
+    ...mypageRoutes,
   ],
 });
 

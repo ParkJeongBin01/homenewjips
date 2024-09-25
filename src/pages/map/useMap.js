@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { MARKER_SPRITE_POSITION } from './MarkerSprite';
+import { MARKER_SPRITE_POSITION } from './markerSprite';
 
 export function useMap(HOME_PATH) {
   const markers = ref([]);
@@ -26,10 +26,7 @@ export function useMap(HOME_PATH) {
     const latSpan = northEast.lat() - southWest.lat();
 
     for (const key in MARKER_SPRITE_POSITION) {
-      const position = new naver.maps.LatLng(
-        southWest.lat() + latSpan * Math.random(),
-        southWest.lng() + lngSpan * Math.random()
-      );
+      const position = new naver.maps.LatLng(southWest.lat() + latSpan * Math.random(), southWest.lng() + lngSpan * Math.random());
 
       const marker = new naver.maps.Marker({
         map: map,
@@ -39,10 +36,7 @@ export function useMap(HOME_PATH) {
           url: `${HOME_PATH}/img/example/sp_pins_spot_v3.png`,
           size: new naver.maps.Size(24, 37),
           anchor: new naver.maps.Point(12, 37),
-          origin: new naver.maps.Point(
-            MARKER_SPRITE_POSITION[key][0],
-            MARKER_SPRITE_POSITION[key][1]
-          ),
+          origin: new naver.maps.Point(MARKER_SPRITE_POSITION[key][0], MARKER_SPRITE_POSITION[key][1]),
         },
         zIndex: 100,
       });
