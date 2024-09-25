@@ -7,6 +7,8 @@ import chatRoutes from './chat';
 import buddizRoutes from './buddiz';
 import Blp from '@/pages/board/BoardListPage.vue';
 import Bdp from '@/pages/board/BoardDetailPage.vue';
+import JoinPage from '@/pages/auth/JoinPage.vue';
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +17,10 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomePage,
+
+      path: '/auth/join',
+      name: 'joinPage',
+      component: JoinPage,
     },
     {
       path: '/board',  // 공지 리스트 페이지
