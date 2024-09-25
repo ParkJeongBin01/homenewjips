@@ -7,9 +7,9 @@ export const useFilterStore = defineStore('filter', () => {
       deposit: {
         label: '보증금',
         from: 1000,
-        to: 300000,
+        to: 30000,
         minRange: 0,
-        maxRange: 300000,
+        maxRange: 30000,
         step: 1000,
       },
       rent: {
@@ -24,7 +24,7 @@ export const useFilterStore = defineStore('filter', () => {
         label: '방 크기',
         from: 10,
         to: 100,
-        minRange: 10,
+        minRange: 0,
         maxRange: 100,
         step: 1,
       },

@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { MARKER_SPRITE_POSITION } from './markerSprite';
+import { MARKER_SPRITE_POSITION, MARKER_DATA } from './markerSprite';
 
 export function useMap(HOME_PATH) {
   const markers = ref([]);

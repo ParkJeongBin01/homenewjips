@@ -8,10 +8,16 @@
       data-bs-auto-close="outside"
     >
       {{ title }}
+      <span class="custom-arrow">
+        <i
+          class="fas fa-chevron-down"
+          style="color: #6c757d; margin-left: 0.5rem"
+        ></i>
+      </span>
     </button>
     <form class="dropdown-menu p-4">
       <!-- 체크박스 -->
-      <div v-if="checkboxes && checkboxes.length" class="mb-3">
+      <div v-if="checkboxes && checkboxes.length" id="check-container">
         <label class="form-label-bold">{{ checkboxLabel }}</label>
         <div v-for="(checkbox, index) in checkboxes" :key="index">
           <input
@@ -72,7 +78,23 @@ const handleCheckboxChange = (checkbox, checked) => {
 .form-check-input-outlined {
   outline-color: #4e66f8;
 }
-.btn-outline-secondary:focus {
+.btn-check:checked + .btn,
+:not(.btn-check) + .btn:active,
+.btn:first-child:active,
+.btn.active,
+.btn.show {
+  color: var(--bs-btn-active-color);
   background-color: #4e66f8;
+  border-color: var(--bs-btn-active-border-color);
+}
+.dropdown-toggle::after {
+  display: none; /* 기본 화살표 아이콘 숨기기 */
+}
+.dropdown-toggle {
+  color: black;
+  margin-left: 1rem;
+}
+.check-container {
+  display: flex;
 }
 </style>

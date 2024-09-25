@@ -14,7 +14,7 @@ export default {
     },
     {
       title: '지도',
-      url: 'notice/list',
+      url: '/map',
     },
     {
       title: '채팅',

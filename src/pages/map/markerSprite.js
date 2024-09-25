@@ -29,3 +29,17 @@ export const MARKER_SPRITE_POSITION = {
   H2: [MARKER_SPRITE_X_OFFSET * 7, MARKER_SPRITE_Y_OFFSET * 2],
   I2: [MARKER_SPRITE_X_OFFSET * 8, MARKER_SPRITE_Y_OFFSET * 2],
 };
+export const MARKER_DATA = [
+  {
+    title: '편의시설 1',
+    type: '편의시설',
+    position: { lat: 37.3595704, lng: 127.105399 },
+  },
+  {
+    title: '편의시설 2',
+    type: '편의시설',
+    position: { lat: 37.36, lng: 127.106 },
+  },
+  { title: '식당 1', type: '식당', position: { lat: 37.361, lng: 127.107 } },
+  // 더 많은 마커 데이터...
+];

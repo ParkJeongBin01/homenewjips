@@ -1,4 +1,3 @@
-, markerVisibleHandler
 <template>
   <div class="brief-detail">
     <h3>마커 정보</h3>
