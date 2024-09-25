@@ -1,9 +1,6 @@
+<!-- LoanCard.vue -->
 <template>
-    <div
-      class="loan-card"
-      :class="{ selected: isSelected }"
-      @click="$emit('click')"
-    >
+    <div class="loan-card" @click="$emit('click')">
       <h3>{{ loan.name }}</h3>
       <p>최고 금액: {{ loan.maxAmount }}</p>
       <p>이자율: {{ loan.rate }}</p>
@@ -13,23 +10,18 @@
   <script setup>
   defineProps({
     loan: Object,
-    isSelected: Boolean,
   });
   </script>
   
   <style scoped>
   .loan-card {
-    background-color: #ffffff;
+    background-color: #0058a3; /* Updated color for cards */
+    color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
-  }
-  
-  .loan-card.selected {
-    background-color: #e28409;
-    color: #ffffff;
+    transition: box-shadow 0.2s ease-in-out;
   }
   
   .loan-card:hover {

@@ -1,9 +1,17 @@
 <template>
-    <div class="loan-detail-page">
-      <h1>{{ loan.name }}</h1>
+    <div class="loan-detail">
+      <h2>{{ loan.name }}</h2>
+      <p>상품 소재목: {{ loan.category }}</p>
       <p>최고 금액: {{ loan.maxAmount }}</p>
       <p>이자율: {{ loan.rate }}</p>
-      <p>{{ loan.description }}</p>
+      <p>기간: {{ loan.period }}</p>
+      <p>상환 방법: {{ loan.repaymentMethod }}</p>
+      <p>금리 및 이용: {{ loan.interest }}</p>
+      <p>이용 안내: {{ loan.usageInstructions }}</p>
+      <p>
+        상세정보: 
+        <a :href="loan.detailsUrl" target="_blank">상세정보</a> <!-- Link as a clickable hyperlink -->
+      </p>
     </div>
   </template>
   
@@ -13,49 +21,49 @@
   
   const route = useRoute();
   
-  // Define more loan details using loanId from the route
   const loans = [
     {
       id: '1',
       name: 'KB WELCOME PLUS',
+      category: '상품 소개 및 최고 금액',
       maxAmount: '최고 1.5%',
       rate: '연 3.5 ~ 5.5%',
-      description: 'This loan is designed for foreigners with long-term tenancy needs...',
+      period: '3개월에서 2년',
+      repaymentMethod: '일시 상환 또는 원리금 균등 상환 방식 가능',
+      interest: '변동 금리, 연 3.5% 이내',
+      usageInstructions: '모든 조건을 충족해야 하며, 조건에 따라 이용 가능',
+      detailsUrl: 'https://obank.kbstar.com/quics?page=C060283&cc=b028364:b061618&brand상품코드=LN20001121&QSL=F',
     },
     {
       id: '2',
       name: 'KB 진세실심 대출보증',
+      category: '상품 소개 및 최고 금액',
       maxAmount: '최고 1.5%',
       rate: '연 3.5 ~ 5.5%',
-      description: 'This loan provides guarantees for Jeonse deposits...',
+      period: '3개월에서 2년',
+      repaymentMethod: '일시 상환 또는 원리금 균등 상환 방식 가능',
+      interest: '변동 금리, 연 3.5% 이내',
+      usageInstructions: '모든 조건을 충족해야 하며, 조건에 따라 이용 가능',
+      detailsUrl: 'https://another-example.com',
     },
-    {
-      id: '3',
-      name: 'KB 외국인 전용 주택 전세자금 대출',
-      maxAmount: '최고 1.5%',
-      rate: '연 3.5 ~ 5.5%',
-      description: 'This loan is specifically for foreigners renting homes...',
-    },
+    // Add more loans here...
   ];
   
-  // Get the loan based on the route parameter loanId
   const loan = computed(() => loans.find((l) => l.id === route.params.loanId));
   </script>
   
   <style scoped>
-  .loan-detail-page {
+  .loan-detail {
     padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
   }
   
-  .loan-detail-page h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+  .loan-detail a {
+    color: blue;
+    text-decoration: underline;
   }
   
-  .loan-detail-page p {
-    margin-bottom: 10px;
+  .loan-detail a:hover {
+    color: darkblue;
   }
   </style>
   
