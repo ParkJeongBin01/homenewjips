@@ -5,6 +5,7 @@ import boardRotes from './board';
 import mapRoutes from './map';
 import chatRoutes from './chat';
 import buddizRoutes from './buddiz';
+import guideRoutes from './guide'; // Import guide routes
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,6 +20,7 @@ const router = createRouter({
     ...mapRoutes,
     ...chatRoutes,
     ...buddizRoutes,
+    ...guideRoutes
   ],
 });
 
