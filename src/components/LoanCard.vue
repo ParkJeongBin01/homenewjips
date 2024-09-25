@@ -1,40 +1,53 @@
-<!-- LoanCard.vue -->
 <template>
     <div class="loan-card" @click="$emit('click')">
       <h3>{{ loan.name }}</h3>
-      <p>최고 금액: {{ loan.maxAmount }}</p>
-      <p>이자율: {{ loan.rate }}</p>
+      <p>{{ loan.subtitle }}</p>
+      <p class="rate">{{ loan.rate }}</p>
     </div>
   </template>
   
   <script setup>
-  defineProps({
-    loan: Object,
+  const props = defineProps({
+    loan: {
+      type: Object,
+      required: true
+    }
   });
   </script>
   
   <style scoped>
   .loan-card {
-    background-color: #0058a3; /* Updated color for cards */
-    color: white;
+    background-color: white;
     padding: 20px;
-    border-radius: 8px;
-    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
-    transition: box-shadow 0.2s ease-in-out;
+    text-align: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .loan-card:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
   
   .loan-card h3 {
     font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
   }
   
   .loan-card p {
-    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .loan-card .rate {
+    font-size: 1rem;
+    color: #888;
   }
   </style>
   

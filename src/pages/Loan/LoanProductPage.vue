@@ -1,17 +1,16 @@
 <template>
     <div class="loan-page">
-      <!-- Header with background image -->
-      <section class="header">
+      <!-- Header with grey background -->
+      <section class="header grey-background">
         <div class="header-content">
           <h1>외국인을 위한 대출</h1>
           <p>여러분을 위한 대출정보를 이용하세요!</p>
         </div>
       </section>
-  
+
       <!-- Loan Details (Selected Loan Information) -->
       <section class="loan-details" v-if="selectedLoan">
         <h3>{{ selectedLoan.name }}</h3>
-        <!-- Updated to position labels above each information -->
         <p><strong>상품 소제목:</strong> {{ selectedLoan.subtitle }}</p>
         <p><strong>최고 금액:</strong> {{ selectedLoan.maxAmount }}</p>
         <p><strong>이자율:</strong> {{ selectedLoan.rate }}</p>
@@ -19,9 +18,9 @@
         <p><strong>상환 방법:</strong> {{ selectedLoan.repayment }}</p>
         <p><strong>금리 및 이용:</strong> {{ selectedLoan.interest }}</p>
         <p><strong>이용 안내:</strong> {{ selectedLoan.usageInfo }}</p>
-        <a :href="selectedLoan.link" target="_blank">상세정보</a> <!-- Clickable link -->
+        <a :href="selectedLoan.link" target="_blank">상세정보</a>
       </section>
-  
+
       <!-- Loan Cards Section -->
       <section class="loan-cards">
         <h2>다른 대출 정보</h2>
@@ -35,15 +34,14 @@
         </div>
       </section>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  import LoanCard from '@/components/LoanCard.vue';
-  
+</template>
 
-  const loans = [
-  {
+<script setup>
+import { ref } from 'vue';
+import LoanCard from '@/components/LoanCard.vue';
+
+const loans = [
+{
     id: 1,
     name: 'KB WELCOME PLUS',
     subtitle: '임차보증금 80% 이내, 최대 2억까지',
@@ -116,7 +114,6 @@
     link: 'https://obank.kbstar.com',
   },
 ];
-  
 
 const selectedLoan = ref(null);
 
@@ -127,52 +124,50 @@ const goToLoanDetail = (loan) => {
 </script>
 
 <style scoped>
-/* Header styling */
-.header {
-  background-color: #f5f5f5; /* Light grey background */
-  padding: 60px 0;
+/* Global container */
+.loan-page {
+  padding: 2rem;
+}
+
+/* Grey background for the header section */
+.header.grey-background {
+  background-color: #f5f5f5;
+  padding: 40px;
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.header-content {
-  color: #333;
+.header-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-.header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.header p {
+.header-content p {
   font-size: 1.2rem;
+  color: #666;
 }
 
-/* Loan Details Styling */
+/* Loan Details Section */
 .loan-details {
   margin-top: 20px;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: white;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .loan-details h3 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
+  margin-bottom: 15px;
 }
 
 .loan-details p {
-  margin: 5px 0;
-  color: #666;
+  margin: 10px 0;
 }
 
 .loan-details a {
   color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.loan-details a:hover {
   text-decoration: underline;
 }
 
@@ -181,25 +176,55 @@ const goToLoanDetail = (loan) => {
   margin-top: 40px;
 }
 
+.loan-cards h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Loan grid with smaller cards */
 .loan-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 20px;
 }
 
-.loan-grid .loan-card {
-  background-color: #1e88e5; /* Updated Blue color for loan cards */
+.loan-card {
+  background-color: #446688; /* Solid blue background */
   padding: 20px;
-  color: white;
+  border-radius: 12px;
+  color: white !important; /* Ensure all text color is white */
   text-align: center;
-  border-radius: 12px; /* More rounded corners for the card shape */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out; /* Transition for hover effect */
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.loan-grid .loan-card:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  background-color: #1565c0; /* Darker blue on hover */
+.loan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Hover effect */
 }
+
+/* Title inside the card */
+.loan-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: white !important; /* Set title color to white */
+}
+
+/* Subtitle or description inside the card */
+.loan-card p {
+  font-size: 1rem;
+  color: white !important; /* Set paragraph text to white */
+}
+
+/* Interest rate or other specific text */
+.loan-card .rate {
+  font-size: 1rem;
+  color: white !important; /* Ensure rate text is white */
+}
+
 </style>
