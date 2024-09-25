@@ -6,6 +6,7 @@ import travelRoutes from './travel';
 import galleryRoutes from './gallery';
 import mapRoutes from './map';
 import chatRoutes from './chat';
+import blameRoutes from './blame';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +21,8 @@ const router = createRouter({
     ...travelRoutes,
     ...galleryRoutes,
     ...mapRoutes,
-    ...chatRoutes
+    ...chatRoutes,
+    ...blameRoutes
   ],
 });
 
