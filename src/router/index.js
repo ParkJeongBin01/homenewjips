@@ -4,6 +4,7 @@ import authRotes from './auth';
 import boardRotes from './board';
 import mapRoutes from './map';
 import chatRoutes from './chat';
+import blameRoutes from './blame';
 import buddizRoutes from './buddiz';
 import Blp from '@/pages/board/BoardListPage.vue';
 import Bdp from '@/pages/board/BoardDetailPage.vue';
@@ -36,6 +37,7 @@ const router = createRouter({
     ...boardRoutes,
     ...mapRoutes,
     ...chatRoutes,
+    ...blameRoutes,
     ...buddizRoutes,
     ...loanRoutes, // Add loan routes here    
     ...guideRoutes, // Add guide routes here
