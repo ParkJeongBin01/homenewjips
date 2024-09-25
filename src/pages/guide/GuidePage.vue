@@ -1,3 +1,4 @@
+<!-- GuidePage.vue -->
 <template>
   <div class="guide-page">
     <!-- Hero Section -->
@@ -40,9 +41,10 @@
 import { ref, computed } from 'vue';
 import GuideCard from '@/components/GuideCard.vue';
 
+// Update the image paths to reference images from the public folder
 const guides = ref([
   {
-    imageSrc: '@/assets/images/guide1.jpeg',
+    imageSrc: '/images/guide1.jpeg',
     category: 'Living',
     title: '원룸? 1.5룸? 이란',
     date: 'September 1, 2023',
@@ -50,7 +52,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/2'
   },
   {
-    imageSrc: '@/assets/images/guide2.jpeg',
+    imageSrc: '/images/guide2.jpeg',
     category: 'Finance',
     title: '전세 대출 방법',
     date: 'September 2, 2023',
@@ -58,7 +60,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/3'
   },
   {
-    imageSrc: '@/assets/images/guide3.jpeg',
+    imageSrc: '/images/guide3.jpeg',
     category: 'Living',
     title: '집을 구하는 과정',
     date: 'September 3, 2023',
@@ -66,7 +68,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/4'
   },
   {
-    imageSrc: '@/assets/images/guide4.jpeg',
+    imageSrc: '/images/guide4.jpeg',
     category: 'Legal',
     title: '허위 매물 예방 방법',
     date: 'September 4, 2023',
@@ -74,7 +76,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/5'
   },
   {
-    imageSrc: '@/assets/images/guide5.jpeg',
+    imageSrc: '/images/guide5.jpeg',
     category: 'Living',
     title: '한국 생활 가이드',
     date: 'September 5, 2023',
@@ -82,7 +84,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/6'
   },
   {
-    imageSrc: '@/assets/images/guide6.jpeg',
+    imageSrc: '/images/guide6.jpeg',
     category: 'Legal',
     title: '부동산 계약 팁',
     date: 'September 6, 2023',
@@ -90,7 +92,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/7'
   },
   {
-    imageSrc: '@/assets/images/guide7.jpeg',
+    imageSrc: '/images/guide7.jpeg',
     category: 'Finance',
     title: '보증금 돌려받는 법',
     date: 'September 7, 2023',
@@ -98,7 +100,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/8'
   },
   {
-    imageSrc: '@/assets/images/guide8.jpeg',
+    imageSrc: '/images/guide8.jpeg',
     category: 'Finance',
     title: '월세 대출 방법',
     date: 'September 8, 2023',
@@ -106,7 +108,7 @@ const guides = ref([
     link: 'https://spacediver.tistory.com/9'
   },
   {
-    imageSrc: '@/assets/images/guide9.jpeg',
+    imageSrc: '/images/guide9.jpeg',
     category: 'Legal',
     title: '집주인과의 분쟁 해결 방법',
     date: 'September 9, 2023',
@@ -140,8 +142,6 @@ const prevPage = () => {
   }
 };
 </script>
-
-
 
 <style scoped>
 .guide-page {
