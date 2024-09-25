@@ -64,13 +64,9 @@ const handlePageChange = async (pageNum) => {
   <div class="row row-cols-md-2 row-cols-1 gy-md-5 gy-4 mb-lg-5 mb-4 notice-content">
     <article class="col pb-2 pb-md-1" v-for="item in articles" :key="item.id">
           <a class="d-block position-relative mb-3" :href="`/board/${item.id}`">
-<<<<<<< HEAD
             <img class="d-block rounded-3 article-image"
                  :src="item.imageUrl || 'https://image.ajunews.com/content/image/2022/04/04/20220404181310254680.jpg'"
                  alt="공지 이미지">
-=======
-            <img class="d-block rounded-3" :src="item.imageUrl || 'https://image.ajunews.com/content/image/2022/04/04/20220404181310254680.jpg'" alt="공지 이미지" />
->>>>>>> 8fabfb0c3dff8ca98a1f8d047d03ab5e67ee5937
           </a>
           <a class="fs-sm text-uppercase text-decoration-none" href="#">{{ item.title }}</a>
           <h3 class="h5 mb-2 pt-1">
@@ -102,7 +98,7 @@ const handlePageChange = async (pageNum) => {
 
 <style scoped>
 .notice-header-wrapper {
-  background-color: #f7f7f7;  /* 회색 배경 */
+  background-color: #F5F6F7;  /* 회색 배경 */
   width: 100vw;               /* 화면 전체 너비를 차지 */
   margin-left: calc(-50vw + 50%); /* 중앙 정렬을 유지하며 화면 끝까지 확장 */
   margin-right: calc(-50vw + 50%); /* 오른쪽 여백 제거 */

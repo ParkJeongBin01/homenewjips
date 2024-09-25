@@ -5,6 +5,8 @@ import boardRotes from './board';
 import mapRoutes from './map';
 import chatRoutes from './chat';
 import buddizRoutes from './buddiz';
+import Blp from '@/pages/board/BoardListPage.vue';
+import Bdp from '@/pages/board/BoardDetailPage.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +15,17 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomePage,
+    },
+    {
+      path: '/board',  // 공지 리스트 페이지
+      name: 'Blp',
+      component: Blp,
+    },
+    {
+      path: '/board/:no',  // 개별 공지 상세 페이지
+      name: 'Bdp',
+      component: Bdp,
+      props: true  // URL 파라미터를 props로 전달
     },
     ...authRotes,
     ...boardRotes,
