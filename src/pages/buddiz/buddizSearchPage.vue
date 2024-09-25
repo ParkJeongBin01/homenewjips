@@ -1,9 +1,12 @@
 <template>
-  <div class="buddiz-search">
-    <div style="background-color: #F5F6F7;">
+  <div style="background-color: #F5F6F7;">
+    <div class="buddiz-banner">
       <h1>버디즈</h1>
       <p>나에게 꼭 맞는 버디를 찾아보세요!</p>
     </div>
+  </div>
+
+  <div class="buddiz-search">
 
     <!-- 필터와 목록을 가로로 정렬 -->
     <div class="content">
@@ -217,6 +220,12 @@
   </script>
   
   <style scoped>
+
+  .buddiz-banner{
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
   .buddiz-search {
     padding: 20px;
   }
@@ -227,8 +236,8 @@
   }
   
   .filter-section {
-    width: 400px;
-    margin-right: 20px;
+    width: 300px;
+    margin-right: 5px;
   }
   
   .buddiz-list {
@@ -249,7 +258,7 @@
   
   .buddiz-search {
   /* padding: 20px; */
-  max-width: 1000px; /* 원하는 최대 너비 설정 */
+  max-width: 1024px; /* 원하는 최대 너비 설정 */
   margin: 0 auto; /* 페이지를 가운데 정렬하고 양옆에 간격을 줌 */
 }
 
