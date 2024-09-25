@@ -15,7 +15,7 @@
             </label>
             <label>
               <input type="radio" v-model="selectedGender" value="남성" /> 남성
-            </label>
+            </label>/Users/brucerinderman/Library/CloudStorage/OneDrive-Personal/New_front/newjips_Frontend/src/pages/buddy
           </div>
   
           <div class="sort-options">
