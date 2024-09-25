@@ -1,5 +1,4 @@
-import GuidePage from '../pages/guide/GuidePage.vue';
-
+import GuidePage from '@/pages/guide/GuidePage.vue';
 
 export default [
   {
