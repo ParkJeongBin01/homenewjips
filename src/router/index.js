@@ -5,7 +5,7 @@ import boardRotes from './board';
 import mapRoutes from './map';
 import chatRoutes from './chat';
 import buddizRoutes from './buddiz';
-import BuddizProfile from '@/pages/buddiz/buddizProfile.vue';
+import buddizProfile from '@/pages/buddiz/buddizProfile.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +18,7 @@ const router = createRouter({
     {
       path: '/form',
       name: 'Form',
-      component: BuddizProfile
+      component: buddizProfile
     },
     ...authRotes,
     ...boardRotes,
