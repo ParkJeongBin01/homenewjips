@@ -10,45 +10,46 @@
 
     <!-- 필터와 목록을 가로로 정렬 -->
     <div class="content">
-      <!-- 검색 필터 -->
       <div class="filter-section">
+        <p>닉네임으로 검색</p>
         <div class="search-bar">
-          <div>
-            <input v-model="searchQuery" type="text" placeholder="닉네임으로 검색" />
-            <button><i class="fa fa-search"></i></button>
-          </div>
-          
+          <input v-model="searchQuery" type="text" placeholder="검색어입력" class="search-input" />
+          <button class="search-button"><i class="fa fa-search"></i></button>
         </div>
+        <hr style="width:240px; border-bottom: 3px solid #ddd;">
 
         <div class="filter-options">
           <p>필터로 검색</p>
           <div class="filter-buttons">
-            <button :class="{'active': selectedPersonality === '조용해요'}" @click="selectedPersonality = '조용해요'">조용해요</button>
-            <button :class="{'active': selectedPersonality === '친구해요'}" @click="selectedPersonality = '친구해요'">친구해요</button>
+            <button :class="{'active': selectedPersonality === '조용해요'}" @click="selectedPersonality = '조용해요'" class="filter-select">조용해요</button>
+            <button :class="{'active': selectedPersonality === '친구해요'}" @click="selectedPersonality = '친구해요'"class="filter-select">친구해요</button>
           </div>
-          <div class="filter-gender">
-            <button :class="{'active': selectedGender === '여성'}" @click="selectedGender = '여성'">여성</button>
-            <button :class="{'active': selectedGender === '남성'}" @click="selectedGender = '남성'">남성</button>
+          
+          <div class="filter-buttons">
+            <button :class="{'active': selectedGender === '여성'}" @click="selectedGender = '여성'"class="filter-select">여성</button>
+            <button :class="{'active': selectedGender === '남성'}" @click="selectedGender = '남성'"class="filter-select">남성</button>
           </div>
-        </div>
+        </div><hr style="width:240px; border-bottom: 3px solid #ddd;">
 
         <div class="sort-options">
           <p>정렬</p>
-          <div class="sort-buttons">
-            <button :class="{'active': selectedSort === '별점순'}" @click="selectedSort = '별점순'">별점순</button>
-            <button :class="{'active': selectedSort === '가격순'}" @click="selectedSort = '가격순'">가격순</button>
-            <button :class="{'active': selectedSort === '리뷰 많은 순'}" @click="selectedSort = '리뷰 많은 순'">리뷰 많은 순</button>
+          <div class="filter-buttons">
+            <button :class="{'active': selectedSort === '별점순'}" @click="selectedSort = '별점순'" class="filter-select">별점순</button>
+            <button :class="{'active': selectedSort === '가격순'}" @click="selectedSort = '가격순'" class="filter-select">가격순</button>
+          </div>
+          <div class="filter-bottons">
+            <button :class="{'active': selectedSort === '리뷰 많은 순'}" @click="selectedSort = '리뷰 많은 순'" style="width: 235px;" class="filter-select">리뷰 많은 순</button>
           </div>
         </div>
       </div>
 
       <!-- 버디즈 목록 -->
       <div class="buddiz-list">
-        <div v-for="buddiz in filteredBuddizs" :key="buddiz.id" class="buddiz-item">
+        <div v-for="buddiz in filteredBuddizs" :key="buddiz.id" class="buddiz-item under-line">
           <img :src="buddiz.profileImage" alt="buddiz image" class="buddiz-image" />
-          <div>
-            <h3 style="font-size: 20px;">{{ buddiz.name }}</h3>
-            <div style="font-size: 0.8em;">
+          <div style="margin-top: 10px;">
+            <h3 style="font-size: 20px; font-weight: bold;">{{ buddiz.name }}</h3>
+            <div style="font-size: 0.9em;">
               <p>별점: {{ buddiz.rating }}</p>
               <p>{{ buddiz.description }}</p>
               <p>{{ buddiz.career }}</p>
@@ -56,6 +57,9 @@
           </div>
         </div>
       </div>
+  
+      
+
     </div>
   </div>
 </template>
@@ -222,7 +226,7 @@
   <style scoped>
 
   .buddiz-banner{
-    max-width: 1024px;
+    max-width: 984px;
     margin: 0 auto;
   }
 
@@ -239,21 +243,32 @@
     width: 300px;
     margin-right: 5px;
   }
+
+  .filter-select{
+    margin: 5px;
+  }
   
   .buddiz-list {
     flex-grow: 1;
   }
   
   .buddiz-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 10px; /* 여백 추가 */
+  border-bottom: 3px solid #ddd; /* 각 항목 아래 밑줄 추가 */
+}
+
+  .underline {
+  width: 50%; /* 밑줄의 길이 조정 */
+  border-bottom: 1px solid #ddd; /* 밑줄 추가 */
+}
 
   .buddiz-image{
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
   }
   
   .buddiz-search {
@@ -262,7 +277,43 @@
   margin: 0 auto; /* 페이지를 가운데 정렬하고 양옆에 간격을 줌 */
 }
 
+
+.search-bar {
+  display: flex; /* 가로로 정렬 */
+  max-width: 240px;
+}
+
+.search-input {
+  flex-grow: 1; /* 입력란이 가능한 공간을 차지하도록 */
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px; /* 버튼과 연결되는 부분의 모서리 라운드 처리 */
+  background-color: #e0e0e0;
+  max-width: 180px;
+}
+
+.search-button {
+  background-color: #e0e0e0;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 0 5px 5px 0; /* 버튼과 연결되는 부분의 모서리 라운드 처리 */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 60px;
+}
+
+.search-button:hover {
+  background-color: #d0d0d0;
+}
+
+.filter-bottons{
+  width: 240px;
+  border-bottom: 3px solid #ddd; /* 각 항목 아래 밑줄 추가 */
+}
+
 button {
+  width: 112.5px;
   background-color: #e0e0e0;
   color: black;
   padding: 10px 15px;
