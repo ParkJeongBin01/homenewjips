@@ -26,13 +26,16 @@
       :checkboxes="['원룸', '투룸', '쓰리룸 이상', '오피스텔']"
     />
   </div>
-  <h2>현재 보이는 마커 수: {{ markers.length }}</h2>
+  <div style="justify-content: center; display: flex">
+    <h2>현재 보이는 마커 수: {{ markers.length }}</h2>
+  </div>
   <div class="container">
     <div class="detail-container">
       <h2>경도: {{ selectedMarker?.latitude }}</h2>
       <h2>위도: {{ selectedMarker?.longitude }}</h2>
 
-      <h2>현재 보이는 마커 목록:</h2>
+      <h2>현재 보이는 마커 목록: {{}}</h2>
+
       <div v-for="(marker, index) in visibleMarkers" :key="index">
         <BriefDetailEstate :marker="marker" />
       </div>
@@ -71,7 +74,7 @@ const visibleMarkers = ref([]);
 
 .detail-container {
   flex: 0.5;
-
+  margin-left: 1rem;
   background: white;
 }
 
@@ -81,7 +84,7 @@ const visibleMarkers = ref([]);
 .filter-container {
   display: flex;
   width: 100%;
-  gap: 20px;
+  gap: 10px;
   border-bottom: 1px solid #8f9bb3;
   height: 10vh;
   align-items: center;
