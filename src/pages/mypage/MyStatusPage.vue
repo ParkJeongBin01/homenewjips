@@ -54,7 +54,6 @@
             <h5 class="flex-fill text-center my-3">5</h5>
             <h5 class="flex-fill text-center my-3">0</h5>
             <h5 class="flex-fill text-center my-3">1</h5>
-            <!-- <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background-color: #8f9bb3; z-index: 1;"></div> -->
           </div>
         </div>
         <!-- ---프로필정보창 여기까지--- -->
