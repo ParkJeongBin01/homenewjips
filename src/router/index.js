@@ -6,6 +6,8 @@ import mapRoutes from './map';
 import chatRoutes from './chat';
 import blameRoutes from './blame';
 import buddizRoutes from './buddiz';
+import Blp from '@/pages/board/BoardListPage.vue';
+import Bdp from '@/pages/board/BoardDetailPage.vue';
 import mypageRoutes from './mypage';
 import JoinPage from '@/pages/auth/JoinPage.vue';
 
