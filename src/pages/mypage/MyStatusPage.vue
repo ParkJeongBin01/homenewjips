@@ -6,7 +6,7 @@
     <div class="row px-xl-3">
       <!-- 영역을 12개중 2개 분량사용 -->
       <div class="col-lg-2">
-        <div calss="sticky-top mb-5" style="top: 120px">
+        <div class="sticky-top mb-5" style="top: 120px">
           <!-- 사이드바 -->
           <div class="sidebar">
             <!-- mt-4 mb-4로 top,bottom 마진줌. -->
