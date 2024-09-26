@@ -12,7 +12,7 @@ import buddizRoutes from './buddiz';
 import mypageRoutes from './mypage';
 import JoinPage from '@/pages/auth/JoinPage.vue';
 import loanRoutes from './loan';
-
+import formRoutes from './buddizForm'
 
 
 const router = createRouter({
@@ -48,6 +48,7 @@ const router = createRouter({
     ...buddizRoutes,
     ...mypageRoutes,
     ...loanRoutes,
+    ...formRoutes,
   ],
 });
 
