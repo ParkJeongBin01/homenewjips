@@ -9,8 +9,6 @@ import guideRoutes from './guide';
 import Blp from '@/pages/board/BoardListPage.vue';
 import Bdp from '@/pages/board/BoardDetailPage.vue';
 import buddizRoutes from './buddiz';
-import Blp from '@/pages/board/BoardListPage.vue';
-import Bdp from '@/pages/board/BoardDetailPage.vue';
 import mypageRoutes from './mypage';
 
 import JoinPage from '@/pages/auth/JoinPage.vue';
