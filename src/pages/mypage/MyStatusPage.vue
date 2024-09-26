@@ -10,7 +10,7 @@
           <!-- 사이드바 -->
           <div class="sidebar">
             <!-- mt-4 mb-4로 top,bottom 마진줌. -->
-            <h1 class="sidebar-header mt-4 mb-4">마이 페이지</h1>
+            <h2 class="sidebar-header mt-4 mb-4">마이 페이지</h2>
             <nav class="nav nav-pills flex-column">
               <!-- 아래쪽마진/활성화 -->
               <router-link class="nav-link mb-2" to="/mypage/mystatus" active-class="active">
@@ -29,42 +29,63 @@
       <!-- lg화면일때열10개차지 xl화면일때열8개차지 lg일때열3개차지 위마진 왼쪽마진  -->
       <div class="col-lg-10 col-xl-8 col-lg-3 mt-5 ms-5">
         <!-- 프로필정보창 -->
-        <div class="profile-info mb-3">
-          <h3 class="mb-3">프로필 정보</h3>
-          <div class="profile-image d-flex" style="border: 1px; border-style: solid; border-color: #8f9bb3; border-radius: 3px">
+        <div class="profile-info mb-4">
+          <h4 class="mb-3">프로필 정보</h4>
+          <div class="profile-content d-flex" style="border: 2px; border-style: solid; border-color: #eaecef; border-radius: 10px">
             <img class="mx-4 my-4" src="@/assets/images/avatar-1.jpg" style="max-width: 10%; height: auto; border-radius: 50%" alt="Profile Picture" />
             <div class="profile-data mt-5">
               <h4>닉네임</h4>
               <p style="color: #8f9bb3">이메일</p>
             </div>
+            <div class="edit-btn d-flex" style="margin-left: auto; max-width: 100%; margin-right: 4%">
+              <button class="btn mt-5" style="border: 1px solid #ff8f17; max-height: 27%; background-color: #ff8f17; color: white">수정</button>
+            </div>
           </div>
         </div>
         <!-- 프로필정보창 여기까지 -->
         <!-- 내역 -->
-        <div class="history mb-3">
-          <h3 class="mb-3">내역</h3>
-          <div class="d-flex" style="border: 1px; border-style: solid; border-color: #8f9bb3; border-radius: 3px 3px 0 0; background-color: #f3f9f7">
-            <h5 class="flex-fill text-center my-3">찜한 매물</h5>
-            <h5 class="flex-fill text-center my-3">찜한 버디즈</h5>
-            <h5 class="flex-fill text-center my-3">신고한 매물</h5>
-            <h5 class="flex-fill text-center my-3">신고한 버디즈</h5>
+        <div class="history mb-4">
+          <h4 class="mb-3">내역</h4>
+          <div class="d-flex" style="border: 2px; border-style: solid; border-color: #eaecef; border-radius: 10px 10px 0 0; justify-content: center">
+            <h5 class="flex-fill text-center my-3" style="width: 25%">찜한 매물</h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">찜한 버디즈</h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">신고한 매물</h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">신고한 버디즈</h5>
           </div>
-          <div class="d-flex" style="border: 1px; border-style: solid; border-color: #8f9bb3; border-radius: 0 0 3px 3px; background-color: #f3f9f7; border-top: none">
-            <h5 class="flex-fill text-center my-3">1</h5>
-            <h5 class="flex-fill text-center my-3">5</h5>
-            <h5 class="flex-fill text-center my-3">0</h5>
-            <h5 class="flex-fill text-center my-3">1</h5>
+          <div class="d-flex" style="border: 2px; border-style: solid; border-color: #eaecef; border-radius: 0 0 10px 10px; border-top: none; justify-content: center">
+            <h5 class="flex-fill text-center my-3" style="width: 25%">1</h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">5</h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">0</h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">1</h5>
           </div>
         </div>
         <!-- ---프로필정보창 여기까지--- -->
         <!-- 버디즈 미등록시-->
-        <div class="profile-info mb-3">
-          <h3 class="mb-3">버디즈 이력</h3>
-          <div class="buddiz" style="border: 1px solid #eaecef; width: 30%; background-color: #eaecef">
-            <h5 class="text-center my-2" style="color: #616b79">버디즈 등록하기</h5>
-          </div>
+        <div class="profile-info mt-5 mb-5 d-flex" style="justify-content: flex-end">
+          <!-- <h4 class="mb-3">버디즈 이력</h4> -->
+          <button
+            class="btn-buddiz"
+            style="border: 1px solid #eaecef; border-radius: 10px; width: 20%; background-color: #eaecef"
+            onmouseover="this.style.backgroundColor='#ff8f17'; this.style.color='white';"
+            onmouseout="this.style.backgroundColor='#eaecef'; this.style.color='#616b79';"
+          >
+            <h5 class="text-center my-2">버디즈 등록하기</h5>
+          </button>
         </div>
         <!-- 버디즈 미등록시 여기까지 -->
+        <!-- 버디즈 등록시 -->
+        <!-- <div class="budiiz mb-5">
+          <h4 class="mb-3">버디즈 이력</h4>
+          <div class="budiiz-btn d-flex justify-content-start">
+            <button style="border: 1px solid #eaecef; border-radius: 10px; width: 30%; background-color: #eaecef; background-color: #1e4475">
+              <h5 class="text-center my-2" style="color: white">게시글 보러가기</h5>
+            </button>
+            <button style="border: 1px solid #eaecef; border-radius: 10px; width: 30%; background-color: #eaecef; margin-left: 1rem">
+              <h5 class="text-center my-2" style="color: #616b79">수정하기</h5>
+            </button>
+          </div>
+        </div> -->
+        <!-- 버디즈 등록시 여기까지 -->
       </div>
     </div>
   </div>
