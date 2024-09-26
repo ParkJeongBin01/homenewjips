@@ -65,7 +65,7 @@ const loans = [
   },
   {
     id: 2,
-    name: '전세자금대출 상품',
+    name: 'KB 전세자금대출 상품',
     subtitle: '전세보증금반환보증 지원',
     maxAmount: '최대 4억 원 (보증금의 80%)',
     rate: '최저 4.27% ~ 최고 6.29%',
@@ -73,11 +73,11 @@ const loans = [
     repayment: '만기일시상환',
     interest: '연 4.27% ~ 6.29%',
     usageInfo: '신용등급, 연소득, 주택가액 등에 따라 대출 한도 및 금리 적용',
-    link: 'https://obank.kbstar.com'
+    link: 'https://obank.kbstar.com/quics?page=C019479'
   },
   {
     id: 3,
-    name: '전세자금대출',
+    name: 'KB 전세자금대출',
     subtitle: '임차보증금의 80%까지 보증서 담보로 대출 제공',
     maxAmount: '최대 2억2천2백만원, 채권보전시 4억4천4백만원',
     rate: '최저 4.21% ~ 최고 6.22%',
@@ -85,7 +85,7 @@ const loans = [
     repayment: '일시상환, 혼합상환',
     interest: '최저 4.21%, 최고 6.22%',
     usageInfo: '보증료, 인지세 등',
-    link: 'https://obank.kbstar.com'
+    link: 'https://obank.kbstar.com/quics?page=C019479'
   },
   {
     id: 4,
@@ -97,7 +97,7 @@ const loans = [
     repayment: '일시상환',
     interest: '연 4.057% ~ 6.172%',
     usageInfo: '신용평가, 소득에 따라 대출 한도와 금리 결정',
-    link: 'https://www.kakaobank.com'
+    link: 'https://www.kakaobank.com/products/leaseLoan'
   },
   {
     id: 5,
@@ -109,7 +109,7 @@ const loans = [
     repayment: '일시상환, 통장대출, 원(리)금균등분할상환',
     interest: '최저 4.057% ~ 최고 6.172%',
     usageInfo: '신용평가, 거래 실적에 따라 대출 한도와 금리 결정, 금리 인하 요구권 행사 가능',
-    link: 'https://www.hanabank.com'
+    link: 'https://www.kebhana.com/cont/mall/mall09/mall0903/mall090301/index.jsp'
   }
 ]
   ;
