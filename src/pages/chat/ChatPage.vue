@@ -1,7 +1,6 @@
 <script setup>
 import { ref, reactive, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import '@/assets/chat.css'
 
 
 </script>
@@ -227,14 +226,122 @@ import '@/assets/chat.css'
   </div>
 </template>
 
-<style>
-.avatar{
-    display:inline-block;
-    height:3rem;
-    position:relative;
-    width:3rem
-    }
+<style scoped>
+@media (max-width: 1199.98px) {
+  .chat-layout .chat-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1020;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, visibility 0.3s ease;
+    background: #f5f4f8;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .chat-layout .chat-body.chat-body-visible {
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
     
 .rounded-circle{border-radius:50%!important}
     
+
+.border-end {
+  border-right: 1px solid #ecebf1 !important;
+}
+
+.tab-content > .tab-pane {
+  display: none;
+}
+.tab-content > .active {
+  display: block;
+}
+
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.chat-item {
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.chat-item:hover {
+  background-color: #f5f4f8;
+}
+
+.avatar {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.avatar-md {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+
+.text-muted {
+  --bs-text-opacity: 1;
+  color: #a8a3b9 !important;
+}
+
+.text-muted {
+  --bs-text-opacity: 1;
+  color: #a8a3b9 !important;
+}
+
+.text-end {
+  text-align: right !important;
+}
+
+.icon-shape {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.icon-xs {
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.text-white {
+  --bs-text-opacity: 1;
+  color: #fff !important;
+}
+
+.fs-6 {
+  font-size: 0.75rem !important;
+}
+
+.text-link {
+  color: #5c5776;
+  text-decoration: none;
+}
 </style>

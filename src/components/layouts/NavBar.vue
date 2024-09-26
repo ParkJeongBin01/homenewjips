@@ -14,13 +14,13 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-sm">
+  <nav class="navbar navbar-expand-sm sticky-top bg-white shadow">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
         <img
           src="@/assets/images/newjips.png"
           alt="Brand Logo"
-          style="height: 100%; max-height: 50px"
+          style="height: 100%; max-height: 40px"
         />
       </router-link>
       <button
@@ -42,4 +42,9 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
     </div>
   </nav>
 </template>
-<style></style>
+
+<style>
+.shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+    }
+</style>
