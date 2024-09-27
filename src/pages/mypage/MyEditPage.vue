@@ -49,15 +49,55 @@ const onFileChange = (event) => {
                   <span class="text-danger">*</span>
                 </label>
                 <div class="d-flex align-items-start mb-3">
-                  <label class="mt-3 ms-5" for="uploadfile" title="Replace this pic" style="cursor: pointer; display: flex; align-items: center; justify-content: center">
+                  <label
+                    class="mt-3 ms-5"
+                    for="uploadfile"
+                    title="Replace this pic"
+                    style="
+                      cursor: pointer;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
                     <!-- Avatar place holder -->
-                    <div>
-                      <img class="avatar-img" :src="avatarUrl" style="width: 100px; height: 100px; object-fit: contain; border-radius: 50%" />
+                    <div style="position: relative; display: inline-block">
+                      <img
+                        class="avatar-img"
+                        :src="avatarUrl"
+                        style="
+                          width: 100px;
+                          height: 100px;
+                          object-fit: contain;
+                          border-radius: 50%;
+                        "
+                      />
+                      <div
+                        style="
+                          position: absolute;
+                          bottom: 5px;
+                          right: 5px;
+                          background-color: white; /* 흰색 배경 */
+                          border-radius: 50%; /* 동그라미 모양 */
+                          padding: 5px; /* 패딩으로 크기 조정 */
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                      >
+                        <i class="fa-solid fa-camera"></i>
+                      </div>
                     </div>
                   </label>
                   <!-- 업로드 버튼 -->
                   <!-- <label class="btn btn-sm mb-0 ms-0 mt-3" for="uploadfile" style="border: 1px solid; margin-left: -100px; cursor: pointer">수정</label> -->
-                  <input type="file" id="uploadfile" style="display: none" accept="image/*" @change="onFileChange" />
+                  <input
+                    type="file"
+                    id="uploadfile"
+                    style="display: none"
+                    accept="image/*"
+                    @change="onFileChange"
+                  />
                 </div>
               </div>
               <!-- 닉네임 -->
@@ -67,7 +107,17 @@ const onFileChange = (event) => {
                   닉네임
                   <span class="text-danger">*</span> </label
                 ><br />
-                <input class="text-nicname w-100" value="" type="text" placeholder="닉네임을 입력하세요." style="border: 2px solid #eaecef; border-radius: 3px; padding: 2%" />
+                <input
+                  class="text-nicname w-100"
+                  value=""
+                  type="text"
+                  placeholder="닉네임을 입력하세요."
+                  style="
+                    border: 2px solid #eaecef;
+                    border-radius: 3px;
+                    padding: 2%;
+                  "
+                />
               </div>
               <!-- 이메일 -->
               <div class="col-md-6">
@@ -76,7 +126,17 @@ const onFileChange = (event) => {
                   이메일
                   <span class="text-danger">*</span> </label
                 ><br />
-                <input class="text-email w-100" value="" type="email" placeholder="이메일 주소를 입력하세요." style="border: 2px solid #eaecef; border-radius: 3px; padding: 2%" />
+                <input
+                  class="text-email w-100"
+                  value=""
+                  type="email"
+                  placeholder="이메일 주소를 입력하세요."
+                  style="
+                    border: 2px solid #eaecef;
+                    border-radius: 3px;
+                    padding: 2%;
+                  "
+                />
               </div>
               <!-- 이름 -->
               <div class="col-md-6">
@@ -85,7 +145,17 @@ const onFileChange = (event) => {
                   이름
                   <span class="text-danger">*</span> </label
                 ><br />
-                <input class="text-name w-100" value="" type="text" placeholder="이름을 입력하세요." style="border: 2px solid #eaecef; border-radius: 3px; padding: 2%" />
+                <input
+                  class="text-name w-100"
+                  value=""
+                  type="text"
+                  placeholder="이름을 입력하세요."
+                  style="
+                    border: 2px solid #eaecef;
+                    border-radius: 3px;
+                    padding: 2%;
+                  "
+                />
               </div>
               <!-- 성별 -->
               <div class="col-md-6">
@@ -96,11 +166,22 @@ const onFileChange = (event) => {
                 ><br />
                 <div class="d-flex gap-4">
                   <div class="check-gender radio-bg-light">
-                    <input class="check-manbox" type="radio" name="gender" id="man" checked />
+                    <input
+                      class="check-manbox"
+                      type="radio"
+                      name="gender"
+                      id="man"
+                      checked
+                    />
                     <label class="check-manlabel" for="man">남자</label>
                   </div>
                   <div class="check-gender radio-bg-light">
-                    <input class="check-womanbox" type="radio" name="gender" id="woman" />
+                    <input
+                      class="check-womanbox"
+                      type="radio"
+                      name="gender"
+                      id="woman"
+                    />
                     <label class="check-womanlabel" for="woman">여자</label>
                   </div>
                 </div>
@@ -118,7 +199,17 @@ const onFileChange = (event) => {
               </div> -->
               <!-- 수정하기 버튼 -->
               <div class="col-12 text-end">
-                <button class="btn mb-1 me-3" style="border: 1px solid #ff8f17; max-height: 100%; background-color: #ff8f17; color: white">수정</button>
+                <button
+                  class="btn mb-1 me-3"
+                  style="
+                    border: 1px solid #ff8f17;
+                    max-height: 100%;
+                    background-color: #ff8f17;
+                    color: white;
+                  "
+                >
+                  수정
+                </button>
               </div>
               <!-- 끝 -->
             </form>
@@ -134,18 +225,40 @@ const onFileChange = (event) => {
           <form class="card-body">
             <div class="mb-3">
               <label class="form-label">비밀번호</label>
-              <input class="form-control" type="password" placeholder="비밀번호를 입력하세요." />
+              <input
+                class="form-control"
+                type="password"
+                placeholder="비밀번호를 입력하세요."
+              />
             </div>
             <div class="mb-3">
               <label class="form-label">새로운 비밀번호</label>
-              <input class="form-control" type="password" placeholder="새로운 비밀번호를 입력하세요." />
+              <input
+                class="form-control"
+                type="password"
+                placeholder="새로운 비밀번호를 입력하세요."
+              />
             </div>
             <div class="mb-3">
               <label class="form-label">비밀번호 확인</label>
-              <input class="form-control" type="password" placeholder="새로운 비밀번호 확인" />
+              <input
+                class="form-control"
+                type="password"
+                placeholder="새로운 비밀번호 확인"
+              />
             </div>
             <div class="col-12 text-end">
-              <button class="btn mb-1 me-3" style="border: 1px solid #ff8f17; max-height: 100%; background-color: #ff8f17; color: white">수정</button>
+              <button
+                class="btn mb-1 me-3"
+                style="
+                  border: 1px solid #ff8f17;
+                  max-height: 100%;
+                  background-color: #ff8f17;
+                  color: white;
+                "
+              >
+                수정
+              </button>
             </div>
           </form>
           <!-- card-body End -->
