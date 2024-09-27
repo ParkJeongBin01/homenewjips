@@ -1,12 +1,13 @@
 <script setup>
 import { ref, computed } from 'vue';
+import SideBar from '@/components/layouts/SideBar.vue';
 
-import buildings1 from '@/assets/images/building1.jpg'
-import buildings2 from '@/assets/images/building2.jpg'
-import buildings3 from '@/assets/images/building3.jpg'
-import buildings4 from '@/assets/images/building4.jpg'
-import buildings5 from '@/assets/images/building5.jpg'
-import buildings6 from '@/assets/images/building6.jpg'
+import buildings1 from '@/assets/images/building1.jpg';
+import buildings2 from '@/assets/images/building2.jpg';
+import buildings3 from '@/assets/images/building3.jpg';
+import buildings4 from '@/assets/images/building4.jpg';
+import buildings5 from '@/assets/images/building5.jpg';
+import buildings6 from '@/assets/images/building6.jpg';
 import faceImage1 from '@/assets/images/face2.jpg';
 import faceImage2 from '@/assets/images/face3.jpg';
 import faceImage3 from '@/assets/images/face8.jpg';
@@ -20,11 +21,11 @@ const currentBuddySlide = ref(0);
 
 const blame_buildings = [
   { title: '매물 1', description: '도심에 위치한 넓고 현대적인 방입니다.', imageUrl: buildings1 },
-  { title: '매물 2', description: '교통이 편리한 위치에 있는 아파트입니다.', imageUrl:buildings2},
+  { title: '매물 2', description: '교통이 편리한 위치에 있는 아파트입니다.', imageUrl: buildings2 },
   { title: '매물 3', description: '바다가 보이는 멋진 스튜디오입니다.', imageUrl: buildings3 },
-  { title: '매물 4', description: '조용하고 평화로운 시골 주택입니다.', imageUrl:  buildings4},
-  { title: '매물 5', description: '럭셔리 스타일의 고급 주택입니다.', imageUrl: buildings5},
-  { title: '매물 6', description: '현대적인 디자인의 도심형 아파트입니다.', imageUrl: buildings6}
+  { title: '매물 4', description: '조용하고 평화로운 시골 주택입니다.', imageUrl: buildings4 },
+  { title: '매물 5', description: '럭셔리 스타일의 고급 주택입니다.', imageUrl: buildings5 },
+  { title: '매물 6', description: '현대적인 디자인의 도심형 아파트입니다.', imageUrl: buildings6 },
 ];
 const blame_buddiz = [
   { title: '버디 1', description: '활기찬 성격을 가진 친구입니다.', imageUrl: faceImage1 },
@@ -32,7 +33,7 @@ const blame_buddiz = [
   { title: '버디 3', description: '모험을 좋아하는 친구입니다.', imageUrl: faceImage3 },
   { title: '버디 4', description: '조용하고 사려 깊은 친구입니다.', imageUrl: faceImage4 },
   { title: '버디 5', description: '유머감각이 뛰어난 친구입니다.', imageUrl: faceImage5 },
-  { title: '버디 6', description: '운동을 사랑하는 친구입니다.', imageUrl: faceImage6 }
+  { title: '버디 6', description: '운동을 사랑하는 친구입니다.', imageUrl: faceImage6 },
 ];
 
 // 슬라이드에 표시될 매물 계산
@@ -58,7 +59,6 @@ const prevSlide = () => {
     currentSlide.value -= 1;
   }
 };
-
 
 // 슬라이드에 표시될 버디 계산
 const displayedBuddiz = computed(() => {
@@ -88,23 +88,12 @@ const prevBuddySlide = () => {
     <div class="row px-xl-3">
       <!-- 사이드바 -->
       <div class="col-lg-2">
-        <div class="sticky-top mb-5" style="top: 120px">
-          <div class="sidebar">
-            <h2 class="sidebar-header mt-4 mb-4 ms-2">마이 페이지</h2>
-            <nav class="nav nav-pills flex-column">
-              <router-link class="nav-link mb-2" to="/mypage/mystatus"> 내 상태 </router-link>
-              <router-link class="nav-link mb-2" to="#"> 개인 정보 수정 </router-link>
-              <router-link class="nav-link mb-2" to="#"> 위시리스트 </router-link>
-              <router-link class="nav-link mb-2" to="/mypage/blame" active-class="active"> 신고 목록 </router-link>
-              <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
-            </nav>
-          </div>
-        </div>
+        <SideBar />
       </div>
 
       <!-- 메인 콘텐츠 -->
       <div class="col-lg-9 col-md-9 col-sm-12">
-        <h2 class="mt-5" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">신고한 매물</h2>
+        <h2 class="mt-5" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px">신고한 매물</h2>
         <div class="position-relative">
           <div v-if="blame_buildings.length > 0">
             <!-- 왼쪽 화살표 -->
@@ -132,15 +121,15 @@ const prevBuddySlide = () => {
               <img src="@/assets/icons/arrow_right.png" alt="Right Arrow" />
             </button>
           </div>
-        <div v-else>
-          <div class="text-center">
-            <img src="@/assets/images/nothing.png" alt="nothing" class="img-fluid" style="max-width: 300px;">
-            <p>신고한 매물이 없습니다.</p>
+          <div v-else>
+            <div class="text-center">
+              <img src="@/assets/images/nothing.png" alt="nothing" class="img-fluid" style="max-width: 300px" />
+              <p>신고한 매물이 없습니다.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-        <h2 class="mt-4" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">신고한 버디즈</h2>
+        <h2 class="mt-4" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px">신고한 버디즈</h2>
         <div class="position-relative">
           <div v-if="blame_buildings.length > 0">
             <!-- 왼쪽 화살표 -->
@@ -170,7 +159,7 @@ const prevBuddySlide = () => {
           </div>
           <div v-else>
             <div class="text-center">
-              <img src="@/assets/images/nothing.png" alt="nothing" class="img-fluid" style="max-width: 300px;">
+              <img src="@/assets/images/nothing.png" alt="nothing" class="img-fluid" style="max-width: 300px" />
               <p>신고한 매물이 없습니다.</p>
             </div>
           </div>
