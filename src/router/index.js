@@ -5,11 +5,14 @@ import boardRoutes from './board';
 import mapRoutes from './map';
 import chatRoutes from './chat';
 import blameRoutes from './blame';
-import buddizRoutes from './buddiz';
+import guideRoutes from './guide';
 import Blp from '@/pages/board/BoardListPage.vue';
 import Bdp from '@/pages/board/BoardDetailPage.vue';
+import buddizRoutes from './buddiz';
 import mypageRoutes from './mypage';
 import JoinPage from '@/pages/auth/JoinPage.vue';
+import loanRoutes from './loan';
+import formRoutes from './buddizForm';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,8 +43,11 @@ const router = createRouter({
     ...mapRoutes,
     ...chatRoutes,
     ...blameRoutes,
+    ...guideRoutes,
     ...buddizRoutes,
     ...mypageRoutes,
+    ...loanRoutes,
+    ...formRoutes,
   ],
 });
 

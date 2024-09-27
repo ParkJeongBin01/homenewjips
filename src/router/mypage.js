@@ -9,5 +9,10 @@ export default [
     path: '/mypage/blame',
     name: 'myblame',
     component: () => import('../pages/mypage/MyBlamePage.vue')
-  }
+  },
+  {
+    path: '/mypage/myedit',
+    name: 'myedit',
+    component: () => import('../pages/mypage/MyEditPage.vue'),
+  },
 ];

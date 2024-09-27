@@ -39,7 +39,10 @@ const formatValue = (value) => {
     const smallUnit = value % 10000;
     const bigUnit = Math.floor(value / 10000);
     if (bigUnit > 0) {
-      return `${bigUnit}억 ${smallUnit}만원`.trim();
+      // smallUnit이 0이면 '만원'을 생략
+      return smallUnit > 0
+        ? `${bigUnit}억 ${smallUnit}만원`.trim()
+        : `${bigUnit}억`.trim();
     }
     return `${smallUnit}만원`.trim();
   }
@@ -48,6 +51,7 @@ const formatValue = (value) => {
   }
   return `${value}만원`; // 월세의 경우
 };
+
 const formattedFrom = computed(() => formatValue(sliderValues.value.from));
 const formattedTo = computed(() => {
   const baseValue = formatValue(sliderValues.value.to);
@@ -111,9 +115,84 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.nouislider-values .min,
-.nouislider-values .max {
-  font-size: 14px;
+/*
+* ===================================================
+*     NoUI Slider theming
+* ===================================================
+*/
+.noUi-target {
+  background: #ddd;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  height: 3px;
   margin-top: 10px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 1px !important;
+  height: 1px !important;
+  right: -2px !important;
+  top: -5px;
+  background: #343a40;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+}
+
+.noUi-horizontal .noUi-handle::before,
+.noUi-horizontal .noUi-handle::after {
+  display: none;
+}
+
+.noUi-connect {
+  background: #343a40;
+}
+
+.text-primary .noUi-handle,
+.text-primary .noUi-connect {
+  background: #4e66f8;
+}
+
+.text-secondary .noUi-handle,
+.text-secondary .noUi-connect {
+  background: #e83e8c;
+}
+
+.nouislider-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* 맵 버튼 css */
+.filter-buttons {
+  margin-right: 0.6rem;
+}
+.btn_filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 2px;
+  background-color: white;
+  color: black;
+
+  /* box-shadow: 2px 0 0 0 #8f9bb3; */
+  transition: background-color 0.2s;
+}
+.btn_filter:not(:last-child) {
+  border-bottom: 1px solid rgba(143, 155, 179, 0.5);
+}
+.btn_filter.active {
+  background-color: #4e66f8;
+  color: white;
 }
 </style>
