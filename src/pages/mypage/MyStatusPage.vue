@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+
+</script>
 
 <template>
   <div class="container-fluid">
@@ -19,7 +21,7 @@
               </router-link>
               <router-link class="nav-link mb-2" to="/mypage/myedit"> 개인 정보 수정 </router-link>
               <router-link class="nav-link mb-2" to="#"> 위시리스트 </router-link>
-              <router-link class="nav-link mb-2" to="#"> 신고목록 </router-link>
+              <router-link class="nav-link mb-2" to="/mypage/blame"> 신고목록 </router-link>
               <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
             </nav>
           </div>
