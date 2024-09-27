@@ -12,8 +12,7 @@ import buddizRoutes from './buddiz';
 import mypageRoutes from './mypage';
 import JoinPage from '@/pages/auth/JoinPage.vue';
 import loanRoutes from './loan';
-import formRoutes from './buddizForm'
-
+import formRoutes from './buddizForm';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
