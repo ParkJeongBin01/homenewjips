@@ -36,7 +36,7 @@ const onFileChange = (event) => {
           <!-- 사이드바 -->
           <div class="sidebar">
             <!-- mt-4 mb-4로 top,bottom 마진줌. -->
-            <h2 class="sidebar-header mt-4 mb-4">마이 페이지</h2>
+            <h2 class="sidebar-header mt-4 mb-4 ms-2">마이 페이지</h2>
             <nav class="nav nav-pills flex-column">
               <!-- 아래쪽마진/활성화 -->
               <router-link class="nav-link mb-2" to="/mypage/mystatus"> 내 상태 </router-link>
