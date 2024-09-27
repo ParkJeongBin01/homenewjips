@@ -262,7 +262,7 @@ const prevBuddySlide = () => {
 .arrow-left {
   position: absolute;
   top: 50%;
-  left: -40px; /* 왼쪽 화살표를 사이드바 근처에 배치 */
+  left: -35px; /* 왼쪽 화살표를 사이드바 근처에 배치 */
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
