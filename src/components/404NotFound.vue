@@ -28,9 +28,10 @@
               </svg>
               <!-- go to homepage 버튼 -->
               <div class="pt-3" style="display: flex;">
-                <a class="btn btn-lg btn-primary w-sm-auto w-100 mb-3 me-sm-4" style="background-color: #EA6240;" href="HomePage.vue">
-                  Go to homepage
-              </a>
+                <router-link class="btn btn-lg btn-primary w-sm-auto w-100 mb-3 me-sm-4" style="background-color: #EA6240;"
+              to="/" >
+              Go to homepage
+            </router-link>
             </div>
             </div>
           </div>
