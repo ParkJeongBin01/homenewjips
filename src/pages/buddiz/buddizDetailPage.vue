@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: #F5F6F7;">
-    <div class="buddiz-banner">
+    <div class="buddiz-banner" style="margin-top: 10px; margin-bottom: 30px;">
       <h1>버디즈</h1>
       <p>나에게 꼭 맞는 버디를 찾아보세요!</p>
     </div>
@@ -25,10 +25,12 @@
             </div>
             <!-- 별점, 달러 표시 -->
             <div class="card-body p-4">
-              <div class=" test" style="margin-left: 5px;">
-                <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2" style="width: 100px;">
+              <div class=" test" >
+                <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2" style="width: 150px;">
                   <img src="/src/assets/icons/roundstar.png" alt="star" style="width: 35px; height: 35px;">
-                  <span style="margin-left: 10px;"> 4.8(888)</span>
+                  <span style="margin-left: 10px; margin-top: 15px; display: inline; white-space: nowrap;">
+                    4.8(888)
+                  </span>
                 </div>
               </div>
 
@@ -36,17 +38,21 @@
                 <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2" style="width: 100px;">
                   <img src="/src/assets/icons/roundmoney.png" alt="money" style="width: 35px; height: 35px;">
                   <span style="margin-left: 10px; margin-top: 15px;">
-                    <p>{{ price }}₩8000</p>
+                    {{ price }}₩8000
                   </span>
                 </div>
               </div>
               <hr>
-              <h6>Jack provided</h6>
-              <ul class="card-text text-muted">
-                <li>Government ID</li>
-                <li>Email address</li>
-                <li>Phone number</li>
-              </ul>
+              <div class="card-text text-muted">
+                <div>유쾌함, 감성적인, 과묵함,</div>
+                <div>기 쌤, 집주인과 타협 능숙,</div>
+                <div>인테리어에 감각 있음</div>
+                <br>
+              </div>
+              <div class="text-block">
+                <div class="badge2 badge-secondary-light2" style="font-size: 15px;"><img src="/src/assets/icons/heart.png" alt="star">  버디즈 찜하기</div>
+                <div class="badge2 badge-secondary-light2" style="font-size: 15px;"><img src="/src/assets/icons/chatIcon.png" alt="star">  채팅하기</div>
+              </div>
             </div>
           </div>
         </div>
@@ -71,7 +77,12 @@
             </div>
           </div> -->
           <div class="text-block">
-            <p> <span class="badge badge-secondary-light">Joined in 2011</span></p>
+            <p>
+              <span class="badge badge-secondary-light">한국 자취 28년</span>
+              <span class="badge badge-secondary-light">활동 77번</span>
+              <span class="badge badge-secondary-light">한국어</span>
+              <span class="badge badge-secondary-light">베트남어</span>
+            </p>
           </div>
 
           <div class="text-block">
@@ -314,4 +325,29 @@ export default {
   color: #e83e8c;
   background-color: #fce2ee;
 }
+
+.badge2 {
+  --bs-badge-padding-x: 0.7em;
+  --bs-badge-padding-y: 0.5em;
+  --bs-badge-font-size:0.75em;
+  --bs-badge-font-weight: 700;
+  --bs-badge-color: #fff;
+  --bs-badge-border-radius: 0.4rem;
+  display: block;
+  padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+  font-size: var(--bs-badge-font-size);
+  font-weight: var(--bs-badge-font-weight);
+  line-height: 1;
+  color: var(--bs-badge-color);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--bs-badge-border-radius);
+  margin-bottom: 10px;
+}
+.badge-secondary-light2 {
+  color: #616B79;
+  background-color: #F5F6F7;
+}
+
 </style>
