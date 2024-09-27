@@ -68,6 +68,25 @@
             </div>
           </router-link>
         </div>
+
+        <!-- 페이지네이션 -->
+    <div class="my-5 d-flex justify-content-center">
+      <vue-awesome-paginate
+        :total-items="totalCount"
+        :items-per-page="pageRequest.amount"
+        :max-pages-shown="5"
+        :show-ending-buttons="true"
+        v-model="pageRequest.page"
+        @click="handlePageChange"
+      >
+        <template #first-page-button><i class="fa-solid fa-backward-fast"></i></template>
+        <template #prev-button><i class="fa-solid fa-caret-left"></i></template>
+        <template #next-button><i class="fa-solid fa-caret-right"></i></template>
+        <template #last-page-button><i class="fa-solid fa-forward-fast"></i></template>
+      </vue-awesome-paginate>
+    </div>
+
+
       </div>
 
 
@@ -80,6 +99,14 @@
 export default {
   data() {
     return {
+      pageRequest: {
+        page: 1, // 초기 페이지
+        amount: 6,
+        searchType: '',
+        searchValue: '',
+        types: [],
+      },
+      totalCount: 18,
       searchQuery: '',
       selectedPersonality: null,  // 변경된 부분: 초기값을 null로 설정 (버튼 해제를 위해 사용)
       selectedGender: null,       // 변경된 부분: 초기값을 null로 설정 (버튼 해제를 위해 사용)
@@ -232,7 +259,26 @@ export default {
       this.currentPage = page;
     },
   },
-};
+  async handlePageChange(pageNum) {
+      const router = useRouter(); // Vue Router의 useRouter() 호출
+      await router.push({
+        query: {
+          page: pageNum,
+          amount: this.pageRequest.amount,
+          searchType: this.pageRequest.searchType,
+          searchValue: this.pageRequest.searchValue,
+          types: this.pageRequest.types,
+        },
+      });
+    },
+    getArticles() {
+      const route = useRoute(); // 현재 라우트 정보를 가져옵니다.
+      this.pageRequest.page = parseInt(route.query.page) || 1; // 쿼리에서 페이지 번호를 가져옵니다.
+      const start = (this.pageRequest.page - 1) * this.pageRequest.amount;
+      const end = start + this.pageRequest.amount;
+      return this.$store.state.boardList.slice(start, end); // boardList는 Vuex 스토어에서 가져오는 예시입니다.
+    },
+  };
 </script>
 
 <style scoped>
