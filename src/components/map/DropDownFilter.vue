@@ -9,25 +9,28 @@
     >
       {{ title }}
       <span class="custom-arrow">
-        <i
-          class="fas fa-chevron-down"
-          style="color: #6c757d; margin-left: 0.5rem"
-        ></i>
+        <i class="fas fa-chevron-down"></i>
       </span>
     </button>
     <form class="dropdown-menu p-4">
       <!-- 체크박스 -->
       <div v-if="checkboxes && checkboxes.length" id="check-container">
         <label class="form-label-bold">{{ checkboxLabel }}</label>
-        <div v-for="(checkbox, index) in checkboxes" :key="index">
-          <input
-            type="checkbox"
-            class="form-check-input-outlined"
-            :id="`dropdownCheck${index}`"
-            :value="checkbox"
-            @change="handleCheckboxChange(checkbox, $event.target.checked)"
-          />
-          {{ checkbox }}
+        <div id="boxes">
+          <div
+            v-for="(checkbox, index) in checkboxes"
+            :key="index"
+            class="checkbox-item"
+          >
+            <input
+              type="checkbox"
+              class="form-check-input-outlined"
+              :id="`dropdownCheck${index}`"
+              :value="checkbox"
+              @change="handleCheckboxChange(checkbox, $event.target.checked)"
+            />
+            {{ checkbox }}
+          </div>
         </div>
       </div>
 
@@ -96,5 +99,22 @@ const handleCheckboxChange = (checkbox, checked) => {
 }
 .check-container {
   display: flex;
+}
+
+.fas::after {
+  color: white;
+  margin-left: 0.5rem;
+}
+
+#boxes {
+  display: flex;
+  flex-wrap: wrap; /* 줄 바꿈을 허용 */
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.checkbox-item {
+  flex: 0 0 calc(50% - 10px); /* 각 체크박스의 너비를 50%로 설정하고 간격을 고려 */
+  box-sizing: border-box; /* 패딩 및 테두리를 포함한 크기 계산 */
 }
 </style>
