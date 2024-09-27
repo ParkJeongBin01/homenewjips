@@ -104,7 +104,7 @@ const prevBuddySlide = () => {
 
       <!-- 메인 콘텐츠 -->
       <div class="col-lg-9 col-md-9 col-sm-12">
-        <h2 class="mt-4" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">신고한 매물</h2>
+        <h2 class="mt-5" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">신고한 매물</h2>
         <div class="position-relative">
           <div v-if="blame_buildings.length > 0">
             <!-- 왼쪽 화살표 -->
