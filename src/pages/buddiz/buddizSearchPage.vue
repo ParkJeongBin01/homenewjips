@@ -27,7 +27,7 @@
               class="filter-select">친구해요</button>
           </div>
 
-          <div class="filter-buttons">
+          <div class="filter-buttons ">
             <button :class="{ 'active': selectedGender === '여성' }" @click="selectedGender = '여성'"
               class="filter-select">여성</button>
             <button :class="{ 'active': selectedGender === '남성' }" @click="selectedGender = '남성'"
@@ -44,7 +44,7 @@
             <button :class="{ 'active': selectedSort === '가격순' }" @click="selectedSort = '가격순'"
               class="filter-select">가격순</button>
           </div>
-          <div class="filter-bottons">
+          <div class="filter-buttons">
             <button :class="{ 'active': selectedSort === '리뷰 많은 순' }" @click="selectedSort = '리뷰 많은 순'"
               style="width: 235px;" class="filter-select">리뷰 많은 순</button>
           </div>
@@ -303,6 +303,8 @@ export default {
 
 .filter-select {
   margin: 5px;
+ border-radius: 10px; 
+
 }
 
 .buddiz-list {
@@ -356,6 +358,7 @@ export default {
   /* 버튼과 연결되는 부분의 모서리 라운드 처리 */
   background-color: #e0e0e0;
   max-width: 180px;
+  border-radius: 10px 0 0 10px;
 }
 
 .search-button {
@@ -368,6 +371,7 @@ export default {
   cursor: pointer;
   transition: background-color 0.3s ease;
   max-width: 60px;
+  border-radius: 0 10px 10px 0;
 }
 
 .search-button:hover {
@@ -420,6 +424,10 @@ button:hover {
 
 .active-link {
   font-weight: bold; /* 현재 활성 링크 강조 */
+}
+
+.filter-buttons{
+  color: #F5F6F7;
 }
 
 </style>
