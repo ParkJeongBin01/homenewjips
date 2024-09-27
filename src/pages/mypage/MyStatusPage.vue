@@ -6,7 +6,7 @@
     <div class="row px-xl-3">
       <!-- 영역을 12개중 2개 분량사용 -->
       <div class="col-lg-2">
-        <div calss="sticky-top mb-5" style="top: 120px">
+        <div class="sticky-top mb-5" style="top: 120px">
           <!-- 사이드바 -->
           <div class="sidebar">
             <!-- mt-4 mb-4로 top,bottom 마진줌. -->
@@ -17,7 +17,7 @@
                 <!-- 활성화했을 때 붙이고 싶으면 mb-2빼 -->
                 내 상태
               </router-link>
-              <router-link class="nav-link mb-2" to="#"> 개인 정보 수정 </router-link>
+              <router-link class="nav-link mb-2" to="/mypage/myedit"> 개인 정보 수정 </router-link>
               <router-link class="nav-link mb-2" to="#"> 위시리스트 </router-link>
               <router-link class="nav-link mb-2" to="#"> 신고목록 </router-link>
               <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
@@ -107,5 +107,10 @@
 
 .nav-link.active:hover {
   color: red;
+}
+.sidebar {
+  margin-bottom: 20px;
+  margin-right: 10px; /* 사이드바와 콘텐츠 사이 간격 */
+  width: 180px; /* 사이드바 너비 고정 */
 }
 </style>
