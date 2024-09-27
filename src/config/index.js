@@ -10,7 +10,7 @@ export default {
     },
     {
       title: '환율',
-      url: '/gallery/list',
+      url: '/exchange',
     },
     {
       title: '지도',
