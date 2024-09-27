@@ -1,36 +1,78 @@
 <template>
   <div class="brief-detail">
-    <h3>마커 정보</h3>
-    <p><strong>위도:</strong> {{ marker.getPosition().lat() }}</p>
-    <p><strong>경도:</strong> {{ marker.getPosition().lng() }}</p>
+    <div class="picArea">
+      <i
+        :class="[isLiked(estateId) ? 'bi bi-heart-fill' : 'bi bi-heart']"
+        @click="toggleLike(estateId)"
+        class="heart-icon"
+      ></i>
+    </div>
+    <!-- <div class="briefArea">
+        <h4>{{estate.tradeType}}{{ estate.monthlyPee}}}</h4>
+        <p>{{estate.houseType}}</p>
+        <p>1층, 40㎡, 관리비 15만{{estate.floor}}{{estate.roomSize}}{{estate.monthlyPee}}</p>
+        <p>여의도광나루역 5분{{estate.distToSub}}</p>
+      </div> -->
+    <div class="briefArea">
+      <h4>월세 1000/55</h4>
+      <p>원룸</p>
+      <p>1층, 40㎡, 관리비 15만</p>
+      <p>여의도광나루역 5분</p>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { useLikedEstateStore } from '@/stores/likedEstate';
 import { defineProps } from 'vue';
 
-// props로 marker 데이터를 받음
+// 매물 ID를 props로 받음
 const props = defineProps({
-  marker: {
-    type: Object,
+  estateId: {
+    type: Number,
     required: true,
   },
 });
+
+const likedEstateStore = useLikedEstateStore();
+
+// 스토어의 찜 상태 및 토글 함수 사용
+const isLiked = likedEstateStore.isLiked;
+const toggleLike = likedEstateStore.toggleLike;
 </script>
 
 <style scoped>
 .brief-detail {
-  border: 1px solid #ddd;
+  display: flex;
+  border-top: 1px solid #8f9bb3;
   padding: 10px;
-  margin: 10px 0;
-  background-color: #f9f9f9;
+  position: relative;
 }
 
-h3 {
-  margin-top: 0;
+.picArea {
+  flex: 1;
+  margin-right: 1rem;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  min-height: 130px;
 }
 
-p {
-  margin: 5px 0;
+.briefArea {
+  flex: 2;
+}
+
+.heart-icon {
+  font-size: 1.5rem;
+  color: #ff8f17;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: color 0.3s;
+}
+
+.heart-icon:hover {
+  color: #e05d00;
 }
 </style>

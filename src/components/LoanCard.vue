@@ -17,7 +17,7 @@
   
   <style scoped>
   .loan-card {
-    background-color: white;
+    background-color: #446688;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -38,16 +38,17 @@
   .loan-card h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: white;
   }
   
   .loan-card p {
     font-size: 0.9rem;
-    color: #555;
+    color: white;
   }
   
   .loan-card .rate {
     font-size: 1rem;
-    color: #888;
+    color: white;  
   }
   </style>
   

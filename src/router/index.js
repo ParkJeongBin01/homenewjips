@@ -10,9 +10,9 @@ import Blp from '@/pages/board/BoardListPage.vue';
 import Bdp from '@/pages/board/BoardDetailPage.vue';
 import buddizRoutes from './buddiz';
 import mypageRoutes from './mypage';
-import exchangeRoutes from '@/pages/auth/JoinPage.vue';
-
 import JoinPage from '@/pages/auth/JoinPage.vue';
+import loanRoutes from './loan';
+import formRoutes from './buddizForm';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,11 +38,6 @@ const router = createRouter({
       component: Bdp,
       props: true, // URL 파라미터를 props로 전달
     },
-    {
-      path: '/exchange',
-      name: 'exchange',
-      component: exchangeRoutes,
-    },
     ...authRoutes,
     ...boardRoutes,
     ...mapRoutes,
@@ -51,6 +46,8 @@ const router = createRouter({
     ...guideRoutes,
     ...buddizRoutes,
     ...mypageRoutes,
+    ...loanRoutes,
+    ...formRoutes,
   ],
 });
 

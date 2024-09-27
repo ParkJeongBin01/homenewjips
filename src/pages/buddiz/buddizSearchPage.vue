@@ -7,7 +7,6 @@
   </div>
 
   <div class="buddiz-search">
-
     <!-- 필터와 목록을 가로로 정렬 -->
     <div class="content">
       <div class="filter-section">
@@ -309,7 +308,6 @@
 
 .filter-bottons{
   width: 240px;
-  border-bottom: 3px solid #ddd; /* 각 항목 아래 밑줄 추가 */
 }
 
 button {
@@ -336,6 +334,5 @@ button:hover {
   margin-top: 20px;
 }
 </style>
-  
 
- 
+
