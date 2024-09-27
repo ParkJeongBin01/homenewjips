@@ -256,6 +256,16 @@ export default {
       ];
       return buddizList.find(buddiz => buddiz.id === id);
     },
+    fetchBuddizDetail() {
+      const userId = this.$route.params.id; // URL 파라미터에서 사용자 ID 가져오기
+      // 예시 데이터 (실제로는 API 호출을 통해 데이터를 가져올 수 있음)
+      const users = [
+        { id: 1, name: '사용자 1', email: 'user1@example.com', phone: '010-1234-5678' },
+        { id: 2, name: '사용자 2', email: 'user2@example.com', phone: '010-2345-6789' },
+        { id: 3, name: '사용자 3', email: 'user3@example.com', phone: '010-3456-7890' },
+      ];
+      this.user = users.find(user => user.id === parseInt(userId)); // ID로 사용자 찾기
+    },
   },
   computed: {
     filteredBuddizs() {
