@@ -93,7 +93,7 @@ const prevBuddySlide = () => {
             <h2 class="sidebar-header mt-4 mb-4 ms-2">마이 페이지</h2>
             <nav class="nav nav-pills flex-column">
               <router-link class="nav-link mb-2" to="/mypage/mystatus"> 내 상태 </router-link>
-              <router-link class="nav-link mb-2" to="#"> 개인 정보 수정 </router-link>
+              <router-link class="nav-link mb-2" to="/mypage/myedit"> 개인 정보 수정 </router-link>
               <router-link class="nav-link mb-2" to="#"> 위시리스트 </router-link>
               <router-link class="nav-link mb-2" to="/mypage/blame" active-class="active"> 신고 목록 </router-link>
               <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
