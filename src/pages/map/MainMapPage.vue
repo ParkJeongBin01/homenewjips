@@ -26,20 +26,23 @@
       :checkboxes="['원룸', '투룸', '쓰리룸 이상', '오피스텔']"
     />
   </div>
-  <div style="justify-content: center; display: flex">
-    <h2>현재 보이는 마커 수: {{ markers.length }}</h2>
-  </div>
+
   <div class="container">
-    <div class="detail-container">
+    <div class="detail-container scrollbar">
       <h2>경도: {{ selectedMarker?.latitude }}</h2>
       <h2>위도: {{ selectedMarker?.longitude }}</h2>
 
-      <h2>현재 보이는 마커 목록: {{}}</h2>
-
-      <div v-for="(marker, index) in visibleMarkers" :key="index">
-        <BriefDetailEstate :marker="marker" />
-      </div>
+      <!-- <div v-for="(marker, index) in visibleMarkers" :key="index">
+          <BriefDetailEstate :marker="marker" />
+        </div> -->
+      <BriefDetailEstate :estateId="1" />
+      <BriefDetailEstate :estateId="2" />
+      <BriefDetailEstate :estateId="3" />
+      <BriefDetailEstate :estateId="3" />
+      <BriefDetailEstate :estateId="3" />
+      <BriefDetailEstate :estateId="3" />
     </div>
+
     <div id="map" ref="mapElement" class="map-container"></div>
   </div>
 </template>
@@ -52,16 +55,14 @@ import { useMap } from './useMap';
 import { onMounted, ref } from 'vue';
 
 const filterStore = useFilterStore();
-const markerVisibleHandler = (marker) => {
-  visibleMarkers.value.push(marker);
-};
 
 const mapElement = ref(null);
+const visibleMarkerCount = ref(0);
+
 const { initializeMap, markers, selectedMarker } = useMap();
 onMounted(() => {
-  initializeMap(mapElement.value, markerVisibleHandler);
+  initializeMap(mapElement.value, visibleMarkerCount);
 });
-const visibleMarkers = ref([]);
 </script>
 
 <style scoped>
@@ -74,8 +75,8 @@ const visibleMarkers = ref([]);
 
 .detail-container {
   flex: 0.5;
-  margin-left: 1rem;
   background: white;
+  overflow-y: scroll;
 }
 
 .map-container {
@@ -88,5 +89,17 @@ const visibleMarkers = ref([]);
   border-bottom: 1px solid #8f9bb3;
   height: 10vh;
   align-items: center;
+}
+.scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #9f9f9f;
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: white;
 }
 </style>
