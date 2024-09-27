@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import SideBar from '@/components/layouts/SideBar.vue';
 // import avatar from '../assets/images/myeongsu.jpg';
 
 // const avatar = new URL('@/assets/images/myeongsu.jpg', import.meta.url).href;
@@ -28,28 +29,10 @@ const onFileChange = (event) => {
 
 <template>
   <div class="container-fluid">
-    <!-- 사이드바 왼쪽으로 이동시 줄이면 됨. -->
     <div class="row px-xl-3">
-      <!-- 영역을 12개중 2개 분량사용 -->
+      <!-- 사이드바 -->
       <div class="col-lg-2">
-        <div class="sticky-top mb-5" style="top: 120px">
-          <!-- 사이드바 -->
-          <div class="sidebar">
-            <!-- mt-4 mb-4로 top,bottom 마진줌. -->
-            <h2 class="sidebar-header mt-4 mb-4">마이 페이지</h2>
-            <nav class="nav nav-pills flex-column">
-              <!-- 아래쪽마진/활성화 -->
-              <router-link class="nav-link mb-2" to="/mypage/mystatus"> 내 상태 </router-link>
-              <router-link class="nav-link mb-2" to="/mypage/myedit" active-class="active">
-                <!-- 활성화했을 때 배경색 붙이고 싶으면 mb-2빼 -->
-                개인 정보 수정
-              </router-link>
-              <router-link class="nav-link mb-2" to="#"> 위시리스트 </router-link>
-              <router-link class="nav-link mb-2" to="#"> 신고목록 </router-link>
-              <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
-            </nav>
-          </div>
-        </div>
+        <SideBar />
       </div>
       <!-- 오른쪽화면 -->
       <div class="col-lg-10 col-xl-8 col-lg-3 mt-5 ms-5">
