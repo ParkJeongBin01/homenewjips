@@ -20,7 +20,7 @@
                   style="width: 100px; height: 100px;">
               </a>
               <!-- 실명 입력 -->
-              <h5>카리나</h5>
+              <h5>하니</h5>
               <p class="text-muted text-sm mb-0">Gwangjin-Gu, Jayang-Dong</p>
             </div>
             <!-- 별점, 달러 표시 -->
@@ -61,7 +61,7 @@
         <!-- 오른쪽 배너 시작 -->
         <div class="col-lg-9 ps-lg-5">
           <!-- 닉네임 -->
-          <h1 class="hero-heading mb-0" style="">카리나 로켓펀치</h1>
+          <h1 class="hero-heading mb-0" style="">보니하니</h1>
           <!-- <div class="box">
             <div class="rounded-box">
               <p>한국 자취 28년</p>
@@ -86,7 +86,7 @@
           </div>
 
           <div class="text-block">
-            <p> 안녕하세요^^ 카리나입니다~ 벌써 한국에 온지도 3년이 지났네요..<br>
+            <p> 안녕하세요^^ 하니입니다~ 벌써 한국에 온지도 3년이 지났네요..<br>
               그동안 배웠던 집구하기 꿀팁들을 다량 보유하고 있습니다~~!! <br>
               혼자서 집을 구하기 힘들거나 같이 발품팔 친구를 찾는다면 연락주세요 ☎☎ <br>
             </p>
@@ -125,7 +125,7 @@
                   style="width: 100px; height: 100px;"><span class="text-uppercase text-muted text-sm">Mar 2020</span>
               </div>
               <div>
-                <h6 class="mt-2 mb-1">마이콜</h6>
+                <h6 class="mt-2 mb-1">레이</h6>
                 <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i
                     class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i
                     class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200"></i>
