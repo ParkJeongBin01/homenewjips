@@ -303,7 +303,8 @@ export default {
 
 .filter-select {
   margin: 5px;
- border-radius: 10px; 
+ border-radius: 10px;
+ background-color: #F5F6F7;
 
 }
 
@@ -332,6 +333,7 @@ export default {
 .buddiz-image {
   width: 140px;
   height: 140px;
+  border-radius: 10px; 
 }
 
 .buddiz-search {
@@ -356,13 +358,13 @@ export default {
   border: none;
   border-radius: 5px 0 0 5px;
   /* 버튼과 연결되는 부분의 모서리 라운드 처리 */
-  background-color: #e0e0e0;
+  background-color: #F5F6F7;
   max-width: 180px;
   border-radius: 10px 0 0 10px;
 }
 
 .search-button {
-  background-color: #e0e0e0;
+  background-color: #F5F6F7;
   color: black;
   padding: 10px 15px;
   border: none;
