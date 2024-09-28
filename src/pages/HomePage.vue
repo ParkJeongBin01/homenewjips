@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import LoanCard from '@/components/LoanCard.vue';
+import FloatingAi from '@/components/FloatingAi.vue';
 
 const loans = [
 {
@@ -48,6 +49,7 @@ const loans = [
 
 <template>
   <div class="container-fluid px-0">
+    <FloatingAi></FloatingAi>
     <!-- 메인 검색탭 -->
     <section class="container-fluid my-4 px-xxl-4 mb-5">
       <div class="jarallax card align-items-center justify-content-center border-0 p-md-5 p-4 overflow-hidden mt-n3" 
