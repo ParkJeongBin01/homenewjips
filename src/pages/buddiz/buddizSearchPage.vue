@@ -116,7 +116,7 @@ export default {
         {
           id: 1,
           name: '하니',
-          profileImage: 'src/assets/images/face9.jpg',
+          profileImage: 'src/assets/images/face1.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
@@ -124,7 +124,7 @@ export default {
         {
           id: 2,
           name: '레이',
-          profileImage: 'src/assets/images/face10.jpg',
+          profileImage: 'src/assets/images/face2.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
@@ -132,7 +132,7 @@ export default {
         {
           id: 3,
           name: '카리나',
-          profileImage: '/src/assets/images/face1.jpg',
+          profileImage: '/src/assets/images/face3.jpg',
           rating: 4.8,
           career: '한국 자취 2년차',
           description: '유쾌함, ENFP, 친구해요',
@@ -180,7 +180,7 @@ export default {
         {
           id: 9,
           name: '다니엘',
-          profileImage: 'src/assets/images/face3.jpg',
+          profileImage: 'src/assets/images/face9.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
@@ -188,7 +188,7 @@ export default {
         {
           id: 10,
           name: '마이콜',
-          profileImage: 'src/assets/images/face2.jpg',
+          profileImage: 'src/assets/images/face10.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
