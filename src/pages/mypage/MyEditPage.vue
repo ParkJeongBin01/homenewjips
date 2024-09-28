@@ -51,8 +51,23 @@ const onFileChange = (event) => {
                 <div class="d-flex align-items-start mb-3">
                   <label class="mt-3 ms-5" for="uploadfile" title="Replace this pic" style="cursor: pointer; display: flex; align-items: center; justify-content: center">
                     <!-- Avatar place holder -->
-                    <div>
+                    <div style="position: relative; display: inline-block">
                       <img class="avatar-img" :src="avatarUrl" style="width: 100px; height: 100px; object-fit: contain; border-radius: 50%" />
+                      <div
+                        style="
+                          position: absolute;
+                          bottom: 5px;
+                          right: 5px;
+                          background-color: white; /* 흰색 배경 */
+                          border-radius: 50%; /* 동그라미 모양 */
+                          padding: 5px; /* 패딩으로 크기 조정 */
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                      >
+                        <i class="fa-solid fa-camera"></i>
+                      </div>
                     </div>
                   </label>
                   <!-- 업로드 버튼 -->
