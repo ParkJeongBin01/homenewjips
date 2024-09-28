@@ -14,7 +14,7 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-sm sticky-top bg-white shadow">
+  <nav class="navbar navbar-expand-sm sticky-top bg-white shadow fixed-height">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
         <img
@@ -47,4 +47,9 @@ const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
 .shadow {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
     }
+
+.fixed-height {
+  height: 66px;
+
+}
 </style>

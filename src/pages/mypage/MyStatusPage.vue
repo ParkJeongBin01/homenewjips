@@ -12,7 +12,7 @@
           <!-- 사이드바 -->
           <div class="sidebar">
             <!-- mt-4 mb-4로 top,bottom 마진줌. -->
-            <h2 class="sidebar-header mt-4 mb-4">마이 페이지</h2>
+            <h2 class="sidebar-header mt-4 mb-4 ms-2">마이 페이지</h2>
             <nav class="nav nav-pills flex-column">
               <!-- 아래쪽마진/활성화 -->
               <router-link class="nav-link mb-2" to="/mypage/mystatus" active-class="active">
@@ -20,7 +20,7 @@
                 내 상태
               </router-link>
               <router-link class="nav-link mb-2" to="/mypage/myedit"> 개인 정보 수정 </router-link>
-              <router-link class="nav-link mb-2" to="#"> 위시리스트 </router-link>
+              <router-link class="nav-link mb-2" to="/mypage/wish"> 위시리스트 </router-link>
               <router-link class="nav-link mb-2" to="/mypage/blame"> 신고 목록 </router-link>
               <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
             </nav>

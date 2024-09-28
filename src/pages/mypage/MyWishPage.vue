@@ -18,9 +18,26 @@ import faceImage6 from '@/assets/images/face7.jpg';
 const currentSlide = ref(0);
 const currentBuddySlide = ref(0);
 
+const likedEstates = ref([]); // 좋아요 상태를 저장할 배열
+
+// 하트가 눌렸는지 확인하는 함수
+const isLiked = (estateId) => {
+  return likedEstates.value.includes(estateId);
+};
+
+// 하트 클릭 시 좋아요 상태를 토글하는 함수
+const toggleLike = (estateId) => {
+  if (isLiked(estateId)) {
+    likedEstates.value = likedEstates.value.filter(id => id !== estateId); // 좋아요 해제
+  } else {
+    likedEstates.value.push(estateId); // 좋아요 추가
+  }
+};
+
+
 const blame_buildings = [
   { title: '매물 1', description: '도심에 위치한 넓고 현대적인 방입니다.', imageUrl: buildings1 },
-  { title: '매물 2', description: '교통이 편리한 위치에 있는 아파트입니다.', imageUrl:buildings2},
+  { title: '매물 2', description: '교통이 편리한 위치에 있는 아파트입니다. 교통이 편리한 위치에 있는 아파트입니다. y', imageUrl:buildings2},
   { title: '매물 3', description: '바다가 보이는 멋진 스튜디오입니다.', imageUrl: buildings3 },
   { title: '매물 4', description: '조용하고 평화로운 시골 주택입니다.', imageUrl:  buildings4},
   { title: '매물 5', description: '럭셔리 스타일의 고급 주택입니다.', imageUrl: buildings5},
@@ -94,8 +111,8 @@ const prevBuddySlide = () => {
             <nav class="nav nav-pills flex-column">
               <router-link class="nav-link mb-2" to="/mypage/mystatus"> 내 상태 </router-link>
               <router-link class="nav-link mb-2" to="/mypage/myedit"> 개인 정보 수정 </router-link>
-              <router-link class="nav-link mb-2" to="/mypage/wish"> 위시리스트 </router-link>
-              <router-link class="nav-link mb-2" to="/mypage/blame" active-class="active"> 신고 목록 </router-link>
+              <router-link class="nav-link mb-2" to="/mypage/wish"  active-class="active"> 위시리스트 </router-link>
+              <router-link class="nav-link mb-2" to="/mypage/blame"> 신고 목록 </router-link>
               <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
             </nav>
           </div>
@@ -104,7 +121,7 @@ const prevBuddySlide = () => {
 
       <!-- 메인 콘텐츠 -->
       <div class="col-lg-9 col-md-9 col-sm-12">
-        <h2 class="mt-5" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">신고한 매물</h2>
+        <h2 class="mt-5" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">관심 매물</h2>
         <div class="position-relative">
           <div v-if="blame_buildings.length > 0">
             <!-- 왼쪽 화살표 -->
@@ -119,8 +136,16 @@ const prevBuddySlide = () => {
                   <div class="card-img-top overflow-hidden img-container">
                     <img :src="buildings.imageUrl" class="img-fluid img-custom" :alt="blame_buildings.title" />
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">{{ buildings.title }}</h5>
+                  <div class="card-body" style="position: relative;">
+                    <h5 class="card-title">{{ buildings.title }}
+                      <!-- 하트 버튼 -->
+                      <i
+                          :class="[isLiked(buildings.title) ? 'bi bi-heart-fill' : 'bi bi-heart']"
+                          @click="toggleLike(buildings.title)"
+                          class="heart-icon"
+                          style="position: absolute; right: 20px; top: 25%; transform: translateY(-50%);"
+                      ></i>
+                    </h5>
                     <p class="card-text">{{ buildings.description }}</p>
                   </div>
                 </div>
@@ -132,15 +157,15 @@ const prevBuddySlide = () => {
               <img src="@/assets/icons/arrow_right.png" alt="Right Arrow" />
             </button>
           </div>
-        <div v-else>
-          <div class="text-center">
-            <img src="@/assets/images/nothing.png" alt="nothing" class="img-fluid" style="max-width: 300px;">
-            <p>신고한 매물이 없습니다.</p>
+          <div v-else>
+            <div class="text-center">
+              <img src="@/assets/images/nothing.png" alt="nothing" class="img-fluid" style="max-width: 300px;">
+              <p>신고한 매물이 없습니다.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-        <h2 class="mt-4" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">신고한 버디즈</h2>
+        <h2 class="mt-4" style="margin-left: 20px; margin-right: 0; margin-bottom: 20px;">관심 버디즈</h2>
         <div class="position-relative">
           <div v-if="blame_buildings.length > 0">
             <!-- 왼쪽 화살표 -->
@@ -155,8 +180,16 @@ const prevBuddySlide = () => {
                   <div class="card-img-top overflow-hidden img-container">
                     <img :src="buddy.imageUrl" class="img-fluid img-custom" :alt="buddy.title" />
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">{{ buddy.title }}</h5>
+                  <div class="card-body" style="position: relative;">
+                    <h5 class="card-title">{{ buddy.title }}
+                      <!-- 하트 버튼 -->
+                      <i
+                          :class="[isLiked(buddy.title) ? 'bi bi-heart-fill' : 'bi bi-heart']"
+                          @click="toggleLike(buddy.title)"
+                          class="heart-icon"
+                          style="position: absolute; right: 20px; top: 25%; transform: translateY(-50%);"
+                      ></i>
+                    </h5>
                     <p class="card-text">{{ buddy.description }}</p>
                   </div>
                 </div>
@@ -179,7 +212,6 @@ const prevBuddySlide = () => {
     </div>
   </div>
 </template>
-
 <style>
 .nav-pills .nav-link.active {
   background-color: #ff8f17;
@@ -212,12 +244,10 @@ const prevBuddySlide = () => {
   width: 200px; /* 사이드바 너비 고정 */
 }
 
-
 .container-fluid {
-  margin-top: 60px; /* 헤더 높이만큼 상단 여백 추가 */
+  padding-right: 20px; /* 전체적인 오른쪽 여백 추가 */
+  margin-bottom: 60px;
 }
-
-
 
 /* 메인 콘텐츠를 오른쪽으로 이동시키기 위한 여백 */
 .col-md-9.col-sm-12 {
@@ -242,7 +272,7 @@ const prevBuddySlide = () => {
 /* 매물과 버디즈 카드 모두 텍스트 길이를 2줄로 제한 */
 .card-text {
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* 최대 2줄로 제한 */
+  -webkit-line-clamp: 1; /* 최대 1줄로 제한 */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
