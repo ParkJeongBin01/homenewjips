@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: #F5F6F7;">
-    <div class="buddiz-banner">
+    <div class="buddiz-banner" style="margin-top: 10px; margin-bottom: 30px;">
       <h1>버디즈</h1>
       <p>나에게 꼭 맞는 버디를 찾아보세요!</p>
     </div>
@@ -20,15 +20,17 @@
                   style="width: 100px; height: 100px;">
               </a>
               <!-- 실명 입력 -->
-              <h5>카리나</h5>
+              <h5>하니</h5>
               <p class="text-muted text-sm mb-0">Gwangjin-Gu, Jayang-Dong</p>
             </div>
             <!-- 별점, 달러 표시 -->
             <div class="card-body p-4">
-              <div class=" test" style="margin-left: 5px;">
-                <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2" style="width: 100px;">
+              <div class=" test" >
+                <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2" style="width: 150px;">
                   <img src="/src/assets/icons/roundstar.png" alt="star" style="width: 35px; height: 35px;">
-                  <span style="margin-left: 10px;"> 4.8(888)</span>
+                  <span style="margin-left: 10px; margin-top: 15px; display: inline; white-space: nowrap;">
+                    4.8(888)
+                  </span>
                 </div>
               </div>
 
@@ -36,17 +38,21 @@
                 <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2" style="width: 100px;">
                   <img src="/src/assets/icons/roundmoney.png" alt="money" style="width: 35px; height: 35px;">
                   <span style="margin-left: 10px; margin-top: 15px;">
-                    <p>{{ price }}₩8000</p>
+                    {{ price }}₩8000
                   </span>
                 </div>
               </div>
               <hr>
-              <h6>Jack provided</h6>
-              <ul class="card-text text-muted">
-                <li>Government ID</li>
-                <li>Email address</li>
-                <li>Phone number</li>
-              </ul>
+              <div class="card-text text-muted">
+                <div>유쾌함, 감성적인, 과묵함,</div>
+                <div>기 쌤, 집주인과 타협 능숙,</div>
+                <div>인테리어에 감각 있음</div>
+                <br>
+              </div>
+              <div class="text-block">
+                <div class="badge2 badge-secondary-light2" style="font-size: 15px;"><img src="/src/assets/icons/heart.png" alt="star">  버디즈 찜하기</div>
+                <div class="badge2 badge-secondary-light2" style="font-size: 15px;"><img src="/src/assets/icons/chatIcon.png" alt="star">  채팅하기</div>
+              </div>
             </div>
           </div>
         </div>
@@ -55,7 +61,7 @@
         <!-- 오른쪽 배너 시작 -->
         <div class="col-lg-9 ps-lg-5">
           <!-- 닉네임 -->
-          <h1 class="hero-heading mb-0" style="">카리나 로켓펀치</h1>
+          <h1 class="hero-heading mb-0" style="">보니하니</h1>
           <!-- <div class="box">
             <div class="rounded-box">
               <p>한국 자취 28년</p>
@@ -71,11 +77,16 @@
             </div>
           </div> -->
           <div class="text-block">
-            <p> <span class="badge badge-secondary-light">Joined in 2011</span></p>
+            <p>
+              <span class="badge badge-secondary-light">한국 자취 28년</span>
+              <span class="badge badge-secondary-light">활동 77번</span>
+              <span class="badge badge-secondary-light">한국어</span>
+              <span class="badge badge-secondary-light">베트남어</span>
+            </p>
           </div>
 
           <div class="text-block">
-            <p> 안녕하세요^^ 카리나입니다~ 벌써 한국에 온지도 3년이 지났네요..<br>
+            <p> 안녕하세요^^ 하니입니다~ 벌써 한국에 온지도 3년이 지났네요..<br>
               그동안 배웠던 집구하기 꿀팁들을 다량 보유하고 있습니다~~!! <br>
               혼자서 집을 구하기 힘들거나 같이 발품팔 친구를 찾는다면 연락주세요 ☎☎ <br>
             </p>
@@ -114,7 +125,7 @@
                   style="width: 100px; height: 100px;"><span class="text-uppercase text-muted text-sm">Mar 2020</span>
               </div>
               <div>
-                <h6 class="mt-2 mb-1">마이콜</h6>
+                <h6 class="mt-2 mb-1">레이</h6>
                 <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i
                     class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i
                     class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200"></i>
@@ -245,6 +256,16 @@ export default {
       ];
       return buddizList.find(buddiz => buddiz.id === id);
     },
+    fetchBuddizDetail() {
+      const userId = this.$route.params.id; // URL 파라미터에서 사용자 ID 가져오기
+      // 예시 데이터 (실제로는 API 호출을 통해 데이터를 가져올 수 있음)
+      const users = [
+        { id: 1, name: '사용자 1', email: 'user1@example.com', phone: '010-1234-5678' },
+        { id: 2, name: '사용자 2', email: 'user2@example.com', phone: '010-2345-6789' },
+        { id: 3, name: '사용자 3', email: 'user3@example.com', phone: '010-3456-7890' },
+      ];
+      this.user = users.find(user => user.id === parseInt(userId)); // ID로 사용자 찾기
+    },
   },
   computed: {
     filteredBuddizs() {
@@ -314,4 +335,29 @@ export default {
   color: #e83e8c;
   background-color: #fce2ee;
 }
+
+.badge2 {
+  --bs-badge-padding-x: 0.7em;
+  --bs-badge-padding-y: 0.5em;
+  --bs-badge-font-size:0.75em;
+  --bs-badge-font-weight: 700;
+  --bs-badge-color: #fff;
+  --bs-badge-border-radius: 0.4rem;
+  display: block;
+  padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+  font-size: var(--bs-badge-font-size);
+  font-weight: var(--bs-badge-font-weight);
+  line-height: 1;
+  color: var(--bs-badge-color);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--bs-badge-border-radius);
+  margin-bottom: 10px;
+}
+.badge-secondary-light2 {
+  color: #616B79;
+  background-color: #F5F6F7;
+}
+
 </style>
