@@ -15,4 +15,9 @@ export default [
     name: 'myedit',
     component: () => import('../pages/mypage/MyEditPage.vue'),
   },
+  {
+    path: '/mypage/wish',
+    name: 'mywish',
+    component: () => import('../pages/mypage/MyWishPage.vue'),
+  },
 ];
