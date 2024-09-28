@@ -13,6 +13,7 @@ import faceImage3 from '@/assets/images/face8.jpg';
 import faceImage4 from '@/assets/images/face9.jpg';
 import faceImage5 from '@/assets/images/face10.jpg';
 import faceImage6 from '@/assets/images/face7.jpg';
+import SideBar from '@/components/layouts/SideBar.vue';
 
 // 매물 데이터를 슬라이드로 표시하기 위한 상태 관리
 const currentSlide = ref(0);
@@ -105,18 +106,7 @@ const prevBuddySlide = () => {
     <div class="row px-xl-3">
       <!-- 사이드바 -->
       <div class="col-lg-2">
-        <div class="sticky-top mb-5" style="top: 120px">
-          <div class="sidebar">
-            <h2 class="sidebar-header mt-4 mb-4 ms-2">마이 페이지</h2>
-            <nav class="nav nav-pills flex-column">
-              <router-link class="nav-link mb-2" to="/mypage/mystatus"> 내 상태 </router-link>
-              <router-link class="nav-link mb-2" to="/mypage/myedit"> 개인 정보 수정 </router-link>
-              <router-link class="nav-link mb-2" to="/mypage/wish"  active-class="active"> 위시리스트 </router-link>
-              <router-link class="nav-link mb-2" to="/mypage/blame"> 신고 목록 </router-link>
-              <router-link class="nav-link mb-2" to="/"> 로그아웃 </router-link>
-            </nav>
-          </div>
-        </div>
+        <SideBar />
       </div>
 
       <!-- 메인 콘텐츠 -->
