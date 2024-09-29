@@ -78,10 +78,10 @@
           </div> -->
           <div class="text-block">
             <p>
-              <span class="badge badge-secondary-light">한국 자취 28년</span>
-              <span class="badge badge-secondary-light">활동 77번</span>
-              <span class="badge badge-secondary-light">한국어</span>
-              <span class="badge badge-secondary-light">베트남어</span>
+              <span style="margin-right: 7px;" class="badge badge-secondary-light">한국 자취 28년</span>
+              <span style="margin-right: 7px;" class="badge badge-secondary-light">활동 77번</span>
+              <span style="margin-right: 7px;" class="badge badge-secondary-light">한국어</span>
+              <span style="margin-right: 7px;" class="badge badge-secondary-light">베트남어</span>
             </p>
           </div>
 
