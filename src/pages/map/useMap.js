@@ -7,7 +7,7 @@ export function useMap(HOME_PATH) {
   const selectedMarker = ref(null);
   const CustomMapMarker = (title) => {
     return `
-      <div style="display: flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background-image: url('/estate_marker.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; cursor: pointer;">
+      <div style="display: flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background-image: url('../src/assets/icons/estate_marker.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; cursor: pointer;">
         <span style="color: white; font-size: 1rem; font-weight: 600; text-align: center;">
           <p style="margin:0; font-size:12px; font-weight:400;">전세</p>
           <p style="margin:0; font-size:20px; line-height:1;">3억</p>
@@ -30,7 +30,7 @@ export function useMap(HOME_PATH) {
       gap:5px
     "
   >
-    <img src="/train_icon.svg" style="width: 24px; height: 24px" />
+    <img src="../src/assets/icons/train_icon.svg" style="width: 24px; height: 24px" />
 
     <p style="color: white; margin-top: 15px; font-weight: bold">
       어린이대공원역
@@ -51,7 +51,7 @@ export function useMap(HOME_PATH) {
     "
   >
     <img
-      src="/hot_place_icon.svg"
+      src="../src/assets/icons/hot_place_icon.svg"
       style="width: 24px; height: 24px; margin-right: 10px"
     />
     <p style="color: white; font-weight: bold; margin: 0">정빈이네집</p>
