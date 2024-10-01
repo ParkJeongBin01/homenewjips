@@ -83,7 +83,7 @@
   width: 3px !important;
   height: 15px !important;
   right: -2px !important;
-  top: -5px;
+  top: -5px !important;
   background: #343a40;
   border: none;
   border-radius: 0;

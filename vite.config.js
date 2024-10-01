@@ -20,6 +20,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '../Board_Backend/src/main/webapp/resources',
+    outDir: '../newjips_Backend/src/main/webapp/resources',
   },
 });
