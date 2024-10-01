@@ -5,12 +5,12 @@ export function useMap(HOME_PATH) {
   const visibleMarkerCount = 0;
   const markers = ref([]);
   const selectedMarker = ref(null);
-  const CustomMapMarker = (title) => {
+  const estateMarker = (title, price) => {
     return `
       <div style="display: flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background-image: url('../src/assets/icons/estate_marker.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; cursor: pointer;">
         <span style="color: white; font-size: 1rem; font-weight: 600; text-align: center;">
-          <p style="margin:0; font-size:12px; font-weight:400;">전세</p>
-          <p style="margin:0; font-size:20px; line-height:1;">3억</p>
+          <p style="margin:0; font-size:12px; font-weight:400;">${title}</p>
+          <p style="margin:0; font-size:16px; line-height:1.5;">${price}</p>
         </span>
         </span>
       </div>
@@ -136,7 +136,7 @@ export function useMap(HOME_PATH) {
     });
 
     markers.value.push(hotPlaceMarker);
-    // 랜덤 마커찍기
+    // 랜덤 마커찍기(CustomMarker)
     const bounds = map.getBounds();
     const southWest = bounds.getSW();
     const northEast = bounds.getNE();
@@ -156,14 +156,15 @@ export function useMap(HOME_PATH) {
         map: map,
         position: position,
         title: key, // 마커의 title을 필터 구분자로 사용
+        animation: naver.maps.Animation.DROP,
         icon: {
-          content: CustomMapMarker(key),
+          content: estateMarker(key, MARKER_SPRITE_POSITION[key].price),
 
           size: new naver.maps.Size(24, 37),
           anchor: new naver.maps.Point(12, 37),
           origin: new naver.maps.Point(
-            MARKER_SPRITE_POSITION[key][0],
-            MARKER_SPRITE_POSITION[key][1]
+            MARKER_SPRITE_POSITION[key].position[0],
+            MARKER_SPRITE_POSITION[key].position[1]
           ),
         },
         zIndex: 100,
