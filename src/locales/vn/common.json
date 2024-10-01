@@ -1,0 +1,14 @@
+{
+    "notice" : "thông báo",
+    "budizz" : "budizz",
+    "exchange" : "tỷ giá hối đoái",
+    "map" : "bản đồ",
+    "chat" : "trò chuyện",
+    "login" : "đăng nhập",
+    "mypage" : "Trang của tôi",
+
+    "footer" : {
+        "question" : "câu hỏi",
+        "copyright" : "bản quyền"
+    }
+}
