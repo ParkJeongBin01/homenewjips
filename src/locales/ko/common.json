@@ -1,0 +1,14 @@
+{
+    "notice" : "공지사항",
+    "budizz" : "버디즈",
+    "exchange" : "환율",
+    "map" : "지도",
+    "chat" : "채팅",
+    "login" : "로그인",
+    "mypage" : "마이페이지",
+
+    "footer" : {
+        "question" : "자주묻는 질문",
+        "copyright" : "저작권"
+    }
+}
