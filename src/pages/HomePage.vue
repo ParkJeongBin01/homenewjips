@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 import LoanCard from '@/components/LoanCard.vue';
 import FloatingAi from '@/components/FloatingAi.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const loans = [
 {
@@ -57,7 +60,7 @@ const loans = [
           <span class="img-overlay opacity-50"></span>
           <img class="img-overlay" src="@/assets/images/main_img.jpg">
         <div class="content-overlay" style="max-width: 856px;">
-          <h2 class="display-5 mb-5 pb-md-3 text-white text-center">버디즈와 함께 안전한 집을 찾아보세요 !</h2>
+          <h2 class="display-5 mb-5 pb-md-3 text-white text-center">{{ t('common.chat') }} 버디즈와 함께 안전한 집을 찾아보세요 !</h2>
           <form class="form-group d-block">
             <div class="row g-0">
               <div class="col-md-10 d-sm-flex align-items-center">
