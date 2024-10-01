@@ -75,9 +75,9 @@ export function useMap(HOME_PATH) {
     // 필터 버튼 HTML
     var filterButtonsHtml = `
         <div class="filter-buttons">
-  <button class="btn_filter" id="apartment" data-active="false">핫플</button>
-  <button class="btn_filter" id="villa" data-active="false">안전</button>
-  <button class="btn_filter" id="one-room" data-active="false">편의</button>
+  <button class="btn_filter" id="hotplace" data-active="false">핫플</button>
+  <button class="btn_filter" id="safety" data-active="false">안전</button>
+  <button class="btn_filter" id="convenient" data-active="false">편의</button>
 </div>`;
 
     // 맵이 초기화되면 버튼 추가
@@ -121,7 +121,8 @@ export function useMap(HOME_PATH) {
         origin: new naver.maps.Point(0, 0),
         anchor: new naver.maps.Point(11, 35),
       },
-    }); // hotpalce 고정 마커찍기
+    });
+    // hotpalce 고정 마커찍기
     const hotPlaceMarker = new naver.maps.Marker({
       map: map,
 
