@@ -14,7 +14,8 @@ import JoinPage from '@/pages/auth/JoinPage.vue';
 import loanRoutes from './loan';
 import formRoutes from './buddizForm';
 import aiChatPage from '@/pages/ai/AiChatPage.vue';
-
+import estateRoutes from './estate';
+import NotFoundRoutes from './404NotFound';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -55,6 +56,8 @@ const router = createRouter({
     ...mypageRoutes,
     ...loanRoutes,
     ...formRoutes,
+    ...estateRoutes,
+    ...NotFoundRoutes,
   ],
 });
 
