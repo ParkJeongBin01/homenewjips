@@ -15,6 +15,7 @@ import faceImage5 from '@/assets/images/face10.jpg';
 import faceImage6 from '@/assets/images/face7.jpg';
 import SideBar from '@/components/layouts/SideBar.vue';
 
+
 // 매물 데이터를 슬라이드로 표시하기 위한 상태 관리
 const currentSlide = ref(0);
 const currentBuddySlide = ref(0);
@@ -227,16 +228,9 @@ const prevBuddySlide = () => {
   transition: transform 0.3s ease-in-out;
 }
 
-/* 사이드바와 메인 콘텐츠 사이의 여백을 추가 */
-.sidebar {
-  margin-bottom: 20px; /* 사이드바와 콘텐츠 사이 여백 */
-  margin-right: 50px; /* 사이드바 오른쪽 간격 추가 */
-  width: 200px; /* 사이드바 너비 고정 */
-}
-
 .container-fluid {
   padding-right: 20px; /* 전체적인 오른쪽 여백 추가 */
-  margin-bottom: 60px;
+
 }
 
 /* 메인 콘텐츠를 오른쪽으로 이동시키기 위한 여백 */
@@ -317,9 +311,5 @@ const prevBuddySlide = () => {
   margin-left: 20px; /* 메인 콘텐츠를 오른쪽으로 이동 */
   width: 79%; /* 전체 콘텐츠 너비를 줄임 */
 }
-.sidebar {
-  margin-bottom: 20px;
-  margin-right: 10px; /* 사이드바와 콘텐츠 사이 간격 */
-  width: 180px; /* 사이드바 너비 고정 */
-}
+
 </style>

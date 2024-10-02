@@ -16,6 +16,7 @@ export default ({ mode }) => {
         'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
       },
     },
+
     server: {
       proxy: {
         '/api': {
@@ -25,7 +26,11 @@ export default ({ mode }) => {
       },
     },
     build: {
-      outDir: '../newjips_Backend/src/main/webapp/resources',
+      outDir: '../Board_Backend/src/main/webapp/resources',
+    },
+    // process.env에 환경 변수를 추가합니다.
+    define: {
+      'process.env': env,
     },
   });
 };
