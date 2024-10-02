@@ -116,7 +116,7 @@ export default {
         {
           id: 1,
           name: '하니',
-          profileImage: 'src/assets/images/face9.jpg',
+          profileImage: 'src/assets/images/face1.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
@@ -124,7 +124,7 @@ export default {
         {
           id: 2,
           name: '레이',
-          profileImage: 'src/assets/images/face10.jpg',
+          profileImage: 'src/assets/images/face2.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
@@ -132,7 +132,7 @@ export default {
         {
           id: 3,
           name: '카리나',
-          profileImage: '/src/assets/images/face1.jpg',
+          profileImage: '/src/assets/images/face3.jpg',
           rating: 4.8,
           career: '한국 자취 2년차',
           description: '유쾌함, ENFP, 친구해요',
@@ -180,7 +180,7 @@ export default {
         {
           id: 9,
           name: '다니엘',
-          profileImage: 'src/assets/images/face3.jpg',
+          profileImage: 'src/assets/images/face9.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
@@ -188,7 +188,7 @@ export default {
         {
           id: 10,
           name: '마이콜',
-          profileImage: 'src/assets/images/face2.jpg',
+          profileImage: 'src/assets/images/face10.jpg',
           rating: 4.8,
           career: '한국 자취 3년차',
           description: '유쾌함, ENFP, 조용해요...',
@@ -303,7 +303,8 @@ export default {
 
 .filter-select {
   margin: 5px;
- border-radius: 10px; 
+ border-radius: 10px;
+ background-color: #F5F6F7;
 
 }
 
@@ -332,6 +333,7 @@ export default {
 .buddiz-image {
   width: 140px;
   height: 140px;
+  border-radius: 10px; 
 }
 
 .buddiz-search {
@@ -356,13 +358,13 @@ export default {
   border: none;
   border-radius: 5px 0 0 5px;
   /* 버튼과 연결되는 부분의 모서리 라운드 처리 */
-  background-color: #e0e0e0;
+  background-color: #F5F6F7;
   max-width: 180px;
   border-radius: 10px 0 0 10px;
 }
 
 .search-button {
-  background-color: #e0e0e0;
+  background-color: #F5F6F7;
   color: black;
   padding: 10px 15px;
   border: none;
