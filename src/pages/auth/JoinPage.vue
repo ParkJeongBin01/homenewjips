@@ -2,37 +2,40 @@
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import authApi from '@/api/authApi';
+import { useAuthStore } from '@/stores/auth';
 
 const router = useRouter();
 const avatar = ref(null);
-const checkError = ref('');
+const authStore = useAuthStore; //pinia store 사용을 위한 초기화
 
 //////////////////////////////////////////////////////////
 const member = reactive({
+  uno: '',
   name: '박정빈',
   userId: 'areoin@naver.com',
   password: '1234',
   password2: '1234',
   nickname: '맹구',
   avatar: null,
-  gender: 'male',
+  gender: 'M',
 });
 //////////////////////////////////////////////////////////
 const disableSubmit = ref(true);
+const checkError = ref('');
 const checkId = async () => {
-  if (!member.email) {
+  if (!member.userId) {
     return alert('사용자 ID를 입력하세요.');
   }
 
-  disableSubmit.value = await authApi.checkId(member.email);
+  disableSubmit.value = await authApi.checkId(member.userId);
   console.log(disableSubmit.value, typeof disableSubmit.value);
   checkError.value = disableSubmit.value ? '이미 사용중인 ID입니다.' : '사용가능한 ID입니다.';
 };
 
 const changeId = () => {
   disableSubmit.value = true;
-  if (member.email) {
-    checkError.value = 'Email 중복 체크를 하셔야 합니다.';
+  if (member.userId) {
+    checkError.value = '아이디 중복 체크를 하셔야 합니다.';
   } else {
     checkError.value = '';
   }
@@ -48,7 +51,10 @@ const join = async () => {
   // }
   console.log('회원가입 정보:', member);
   try {
+    //회원가입 정보 전송
     await authApi.create(member);
+    localStorage.setItem('userId', member.userId); // userId 저장
+    localStorage.setItem('password', member.password); // password 저장
     router.push({ name: 'home' });
   } catch (e) {
     console.error(e);
@@ -94,27 +100,27 @@ const join = async () => {
             <!-- col-md-6중간화면일때화면너비50% px-2좌우패딩 pt=2위쪽패딩 pb-4아래쪽패딩 px-sm-5작은화면일때수평패딩 pb-sm-5작은화면일때아래쪽패딩 pt-md-5증간화면일때위쪽패딩 -->
             <div class="col-md-6 px-2 pt-2 pb-2 px-sm-2 pb-sm-5 pt-md-5">
               <form class="needs-validation" @submit.prevent="join" novalidate>
-                <div class="mb-4 mt-5">
+                <div class="mb-2">
                   <label class="form-label" for="name">이름 </label>
-                  <input class="form-control" type="text" id="name" @input="changeId" v-model="member.name" placeholder="이름을 입력하세요." required />
+                  <input class="form-control" type="text" id="name" v-model="member.name" placeholder="이름을 입력하세요." required />
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                   <label class="form-label" for="text"
                     >아이디
                     <button type="button" class="btn btn-success btn-sm py-0 me-2" @click="checkId">ID 중복 확인</button>
                     <span :class="disableSubmit.value ? 'text-primary' : 'text-danger'">{{ checkError }}</span>
                   </label>
-                  <input class="form-control" type="text" id="text" v-model="member.userId" placeholder="아이디를 입력하세요." required />
+                  <input class="form-control" type="text" id="text" @input="changeId" v-model="member.userId" placeholder="아이디를 입력하세요." required />
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                   <label class="form-label" for="password">비밀번호</label>
                   <input class="form-control" type="password" id="password" v-model="member.password" required />
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                   <label class="form-label" for="password2">비밀번호 확인</label>
                   <input class="form-control" type="password" id="password2" v-model="member.password2" required />
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                   <label class="form-label" for="nickname">닉네임</label>
                   <input class="form-control" type="text" id="nickname" v-model="member.nickname" placeholder="닉네임을 입력하세요." required />
                 </div>
@@ -127,7 +133,7 @@ const join = async () => {
                     <label for="female">여성</label>
                   </div>
                 </div>
-                <button class="btn-orange btn-lg w-100" type="submit">Sign up</button>
+                <button class="btn-orange btn-lg w-100" type="submit" :disabled="disableSubmit">Sign up</button>
               </form>
             </div>
           </div>
