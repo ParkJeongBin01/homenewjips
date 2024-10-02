@@ -16,13 +16,9 @@ export default ({ mode }) => {
         'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
       },
     },
-<<<<<<< HEAD
-  },
   build: {
     outDir: '../newjips_Backend/src/main/webapp/resources',
   },
-});
-=======
     server: {
       proxy: {
         '/api': {
@@ -40,4 +36,3 @@ export default ({ mode }) => {
     },
   });
 };
->>>>>>> 5bbaa5464bf5f138a2cf2a4d8b078f5d343f8e4e
