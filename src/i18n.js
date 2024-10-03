@@ -10,6 +10,8 @@ function loadLocaleMessages() {
       const locale = matched[1]; // e.g., 'ko' or 'vn'
       const namespace = matched[2]; // e.g., 'common' or 'message'
 
+      console.log(`Locale: ${locale}, Namespace: ${namespace}`);
+
       // Initialize locale and namespace if not already
       messages[locale] = messages[locale] || {};
       messages[locale][namespace] = locales[path];

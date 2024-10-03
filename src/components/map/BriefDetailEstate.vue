@@ -56,6 +56,7 @@ const toggleLike = likedEstateStore.toggleLike;
   height: 100%;
   background-color: black;
   min-height: 130px;
+  border-radius: 1.5pt;
 }
 
 .briefArea {

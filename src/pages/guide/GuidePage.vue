@@ -17,7 +17,7 @@
     </section>
 
     <!-- Guide Cards Section -->
-    <section class="guide-cards">
+    <section class="guide-cards px-5">
       <GuideCard
         v-for="(guide, index) in paginatedGuides"
         :key="index"
@@ -31,7 +31,7 @@
     </section>
 
     <!-- Pagination -->
-    <div class="pagination">
+    <div class="pagination px-5">
       <a
         href="#"
         class="pagination-link"
@@ -161,7 +161,6 @@ const prevPage = () => {
 <style scoped>
 .guide-page {
   width: 100%;
-  padding: 20px;
 }
 
 /* Hero Section Styles */
@@ -170,10 +169,10 @@ const prevPage = () => {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 100px 0;
+  padding: 13vh 0;
   text-align: left; /* Align text to the left */
   position: relative;
-  min-height: 400px; /* Set a minimum height for the banner */
+  min-height: 30vh; /* Set a minimum height for the banner */
 }
 
 .hero-content {
@@ -192,7 +191,6 @@ const prevPage = () => {
   padding: 40px;
   display: inline-block;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 400px; /* Limit the width of the card */
 }
 
 .hero h2 {
