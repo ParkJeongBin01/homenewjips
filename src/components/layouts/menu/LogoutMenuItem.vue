@@ -6,7 +6,7 @@ const store = useAuthStore();
 
 const router = useRouter();
 const logout = (e) => {
-  // 로그아웃
+  // 로그아웃!
   store.logout();
   router.push('/');
 };
