@@ -19,5 +19,9 @@
         "banner4" : "Tìm phòng bạn muốn tại NewZips và ghé thăm phòng đó cùng Bạn bè!",
         "find_buddiz" : "Tìm Buddiz",
         "find_room" : "Tìm phòng"
+    },
+
+    "chating" : {
+        "placeholder" : "Vui lòng nhập tin nhắn của bạn"
     }
 }
