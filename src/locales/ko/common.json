@@ -19,5 +19,9 @@
         "banner4" : "뉴집스에서 원하는 방을 찾고 버디즈와 함께 방문해보세요!",
         "find_buddiz" : "버디즈 찾기",
         "find_room" : "방 찾기"
+    },
+
+    "chating" : {
+        "placeholder" : "메시지를 입력해주세요"
     }
 }
