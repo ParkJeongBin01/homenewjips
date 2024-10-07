@@ -62,7 +62,6 @@ const requestChatRoom = async () => {
 const startPolling = () => {
     pollingInterval.value = setInterval(() => {
         requestChatRoom(); // 일정 간격으로 메시지를 가져옴
-        console.log('폴링 send');
     }, 1000); // 5000ms (5초) 간격으로 폴링
 };
 

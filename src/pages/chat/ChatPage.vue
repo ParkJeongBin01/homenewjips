@@ -389,7 +389,7 @@ requestChatRoomSetting();
                                 <input
                                     v-model="msgContent"
                                     class="form-control border-0 form-control-simple no-resize"
-                                    :placeholder="t('common.chating.placeholder')"
+                                    :placeholder="t('common.chatting.placeholder')"
                                     rows="1"
                                     @keydown.enter="requestSendMsg()"
                                     />
