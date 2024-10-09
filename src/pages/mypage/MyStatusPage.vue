@@ -57,14 +57,40 @@ onMounted(() => {
         <!-- 프로필정보창 -->
         <div class="profile-info mb-4">
           <h4 class="mb-3">프로필 정보</h4>
-          <div class="profile-content d-flex" style="border: 2px; border-style: solid; border-color: #eaecef; border-radius: 10px">
-            <img class="mx-4 my-4" :src="profilePic" style="max-width: 10%; height: auto; border-radius: 50%" alt="Profile Picture" />
+          <div
+            class="profile-content d-flex"
+            style="
+              border: 2px;
+              border-style: solid;
+              border-color: #eaecef;
+              border-radius: 10px;
+            "
+          >
+            <img
+              class="mx-4 my-4"
+              :src="profilePic"
+              style="max-width: 10%; height: auto; border-radius: 50%"
+              alt="Profile Picture"
+            />
             <div class="profile-data mt-5">
               <h4>{{ nickname }}</h4>
               <p style="color: #8f9bb3">{{ userId }}</p>
             </div>
-            <div class="edit-btn d-flex" style="margin-left: auto; max-width: 100%; margin-right: 4%">
-              <router-link class="btn mt-5" style="border: 1px solid #ff8f17; max-height: 27%; background-color: #ff8f17; color: white" to="/mypage/myedit">수정</router-link>
+            <div
+              class="edit-btn d-flex"
+              style="margin-left: auto; max-width: 100%; margin-right: 4%"
+            >
+              <router-link
+                class="btn mt-5"
+                style="
+                  border: 1px solid #ff8f17;
+                  max-height: 27%;
+                  background-color: #ff8f17;
+                  color: white;
+                "
+                to="/mypage/myedit"
+                >수정</router-link
+              >
             </div>
           </div>
         </div>
@@ -72,30 +98,91 @@ onMounted(() => {
         <!-- 내역 -->
         <div class="history mb-4">
           <h4 class="mb-3">내역</h4>
-          <div class="d-flex" style="border: 2px; border-style: solid; border-color: #eaecef; border-radius: 10px 10px 0 0; justify-content: center">
-            <h5 class="flex-fill text-center my-3" style="width: 25%">찜한 매물</h5>
-            <h5 class="flex-fill text-center my-3" style="width: 25%">찜한 버디즈</h5>
-            <h5 class="flex-fill text-center my-3" style="width: 25%">신고한 매물</h5>
-            <h5 class="flex-fill text-center my-3" style="width: 25%">신고한 버디즈</h5>
+          <div
+            class="d-flex"
+            style="
+              border: 2px;
+              border-style: solid;
+              border-color: #eaecef;
+              border-radius: 10px 10px 0 0;
+              justify-content: center;
+            "
+          >
+            <h5 class="flex-fill text-center my-3" style="width: 25%">
+              찜한 매물
+            </h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">
+              찜한 버디즈
+            </h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">
+              신고한 매물
+            </h5>
+            <h5 class="flex-fill text-center my-3" style="width: 25%">
+              신고한 버디즈
+            </h5>
           </div>
-          <div class="d-flex" style="border: 2px; border-style: solid; border-color: #eaecef; border-radius: 0 0 10px 10px; border-top: none; justify-content: center">
-            <router-link to="/mypage/wish" class="flex-fill text-center my-3" style="width: 25%; text-decoration: none"><h5 style="color: black">0</h5></router-link>
-            <router-link to="/mypage/wish" class="flex-fill text-center my-3" style="width: 25%; text-decoration: none"><h5 style="color: black">0</h5></router-link>
-            <router-link to="/mypage/blame" class="flex-fill text-center my-3" style="width: 25%; text-decoration: none"
+          <div
+            class="d-flex"
+            style="
+              border: 2px;
+              border-style: solid;
+              border-color: #eaecef;
+              border-radius: 0 0 10px 10px;
+              border-top: none;
+              justify-content: center;
+            "
+          >
+            <router-link
+              to="/mypage/wish"
+              class="flex-fill text-center my-3"
+              style="width: 25%; text-decoration: none"
+              ><h5 style="color: black">0</h5></router-link
+            >
+            <router-link
+              to="/mypage/wish"
+              class="flex-fill text-center my-3"
+              style="width: 25%; text-decoration: none"
+              ><h5 style="color: black">0</h5></router-link
+            >
+            <router-link
+              to="/mypage/blame"
+              class="flex-fill text-center my-3"
+              style="width: 25%; text-decoration: none"
               ><h5 style="color: black">{{ estatecount }}</h5></router-link
             >
-            <router-link to="/mypage/blame" class="flex-fill text-center my-3" style="width: 25%; text-decoration: none"
+            <router-link
+              to="/mypage/blame"
+              class="flex-fill text-center my-3"
+              style="width: 25%; text-decoration: none"
               ><h5 style="color: black">{{ budizcount }}</h5></router-link
             >
           </div>
         </div>
         <!-- ---프로필정보창 여기까지--- -->
         <!-- 버디즈 미등록시-->
-        <div class="profile-info mt-5 mb-5 d-flex" style="justify-content: flex-end; flex-direction: row; align-items: center">
-          <router-link to="/form" class="text-center my-2" style="text-decoration: none; display: inline-block">
+        <div
+          class="profile-info mt-5 mb-5 d-flex"
+          style="
+            justify-content: flex-end;
+            flex-direction: row;
+            align-items: center;
+          "
+        >
+          <router-link
+            to="/form"
+            class="text-center my-2"
+            style="text-decoration: none; display: inline-block"
+          >
             <button
               class="btn-buddiz"
-              style="border: 1px solid #eaecef; border-radius: 10px; width: 100%; background-color: #eaecef; padding: 10px; font-size: 18px"
+              style="
+                border: 1px solid #eaecef;
+                border-radius: 10px;
+                width: 100%;
+                background-color: #eaecef;
+                padding: 10px;
+                font-size: 18px;
+              "
               onmouseover="this.style.backgroundColor='#ff8f17'; this.style.color='white';"
               onmouseout="this.style.backgroundColor='#eaecef'; this.style.color='#616b79';"
             >

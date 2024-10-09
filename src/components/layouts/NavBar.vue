@@ -11,7 +11,9 @@ const isLogin = computed(() => authStore.isLogin); //로그인 상태 확인
 
 let state = reactive({ isNavShow: false });
 
-let navClass = computed(() => (state.isNavShow ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'));
+let navClass = computed(() =>
+  state.isNavShow ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'
+);
 
 const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
 
@@ -27,15 +29,29 @@ const changing = (lan) => {
   <nav class="navbar navbar-expand-sm sticky-top bg-white shadow fixed-height">
     <div class="container-fluid" style="padding: 0">
       <router-link class="navbar-brand" to="/">
-        <img src="@/assets/images/newjips.png" alt="Brand Logo" style="height: 100%; max-height: 40px" />
+        <img
+          src="@/assets/images/newjips.png"
+          alt="Brand Logo"
+          style="height: 100%; max-height: 40px"
+        />
       </router-link>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" @click="toggleNavShow">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapsibleNavbar"
+        @click="toggleNavShow"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- <button type="button" @click="changing('vn')">베트남어 {{ t('common.notice') }}</button>
       <button type="button" @click="changing('ko')">한국어</button> -->
 
-      <div :class="navClass" id="collapsibleNavbar" style="flex-grow: 0; background-color: white">
+      <div
+        :class="navClass"
+        id="collapsibleNavbar"
+        style="flex-grow: 0; background-color: white"
+      >
         <div style="flex-direction: row; display: flex">
           <MenuGroup :menus="config.menus" />
 
