@@ -38,7 +38,11 @@ const active = (path) => {
         <router-link :class="active('/mypage/blame')" to="/mypage/blame">
           신고목록
         </router-link>
+<<<<<<< HEAD
         <LogoutMenuItem />
+=======
+        <router-link :class="active('/')" to="/"> 로그아웃 </router-link>
+>>>>>>> 36a1bf6d00bba5a6a874c6a0001fdb35e294fe0b
       </nav>
     </div>
   </div>
