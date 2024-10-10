@@ -4,19 +4,6 @@ import SideBar from '@/components/layouts/SideBar.vue';
 import { useAuthStore } from '@/stores/auth';
 import blameApi from '@/api/blameApi';
 
-import buildings1 from '@/assets/images/building1.jpg';
-import buildings2 from '@/assets/images/building2.jpg';
-import buildings3 from '@/assets/images/building3.jpg';
-import buildings4 from '@/assets/images/building4.jpg';
-import buildings5 from '@/assets/images/building5.jpg';
-import buildings6 from '@/assets/images/building6.jpg';
-import faceImage1 from '@/assets/images/face2.jpg';
-import faceImage2 from '@/assets/images/face3.jpg';
-import faceImage3 from '@/assets/images/face8.jpg';
-import faceImage4 from '@/assets/images/face9.jpg';
-import faceImage5 from '@/assets/images/face10.jpg';
-import faceImage6 from '@/assets/images/face7.jpg';
-
 const auth = useAuthStore();
 const uno = computed(() => auth.uno);
 console.log(auth.uno);
@@ -37,61 +24,38 @@ async function fetchBlameBuddiz() {
     console.error('버디즈 데이터를 가져오지 못했습니다.', e);
   }
 }
+
+const blame_buildings = ref([]);
+// 매물 데이터 가져오기
+async function fetchBlameBuildings() {
+  try {
+    const data = await blameApi.getblameestate(uno.value); // API 호출하여 신고 데이터 가져오기
+    console.log(uno.value);
+    blame_buildings.value = data; // 가져온 데이터 할당
+    console.log('가져온 매물 데이터: ', blame_buildings.value);
+  } catch (e) {
+    console.error('매물 데이터를 가져오지 못했습니다.', e);
+  }
+}
+
 // 컴포넌트 마운트 시 데이터 가져오기
 onMounted(() => {
   fetchBlameBuddiz();
+  fetchBlameBuildings();
 });
-
-const blame_buildings = [
-  {
-    title: '매물 1',
-    description: '도심에 위치한 넓고 현대적인 방입니다.',
-    imageUrl: buildings1,
-  },
-  {
-    title: '매물 2',
-    description: '교통이 편리한 위치에 있는 아파트입니다.',
-    imageUrl: buildings2,
-  },
-  {
-    title: '매물 3',
-    description: '바다가 보이는 멋진 스튜디오입니다.',
-    imageUrl: buildings3,
-  },
-  {
-    title: '매물 4',
-    description: '조용하고 평화로운 시골 주택입니다.',
-    imageUrl: buildings4,
-  },
-  {
-    title: '매물 5',
-    description: '럭셔리 스타일의 고급 주택입니다.',
-    imageUrl: buildings5,
-  },
-  {
-    title: '매물 6',
-    description: '현대적인 디자인의 도심형 아파트입니다.',
-    imageUrl: buildings6,
-  },
-];
-// const blame_buddiz = [
-//   { title: '버디 1', description: '활기찬 성격을 가진 친구입니다.', imageUrl: faceImage1 },
-//   { title: '버디 2', description: '재미있는 이야기로 항상 즐거운 친구입니다.', imageUrl: faceImage2 },
-//   { title: '버디 3', description: '모험을 좋아하는 친구입니다.', imageUrl: faceImage3 },
-//   { title: '버디 4', description: '조용하고 사려 깊은 친구입니다.', imageUrl: faceImage4 },
-//   { title: '버디 5', description: '유머감각이 뛰어난 친구입니다.', imageUrl: faceImage5 },
-//   { title: '버디 6', description: '운동을 사랑하는 친구입니다.', imageUrl: faceImage6 },
-// ];
 
 // 슬라이드에 표시될 매물 계산
 const displayedGuides = computed(() => {
   // 슬라이드에서 시작 인덱스(currentSlide)에서 4개의 매물을 보여줌
-  return blame_buildings.slice(currentSlide.value, currentSlide.value + 4);
+  return blame_buildings.value.slice(
+    currentSlide.value,
+    currentSlide.value + 4
+  );
 });
 
 // 다음 슬라이드로 이동 (총 매물 개수에 맞춰 순환)
 const nextSlide = () => {
-  if (currentSlide.value + 4 >= blame_buildings.length) {
+  if (currentSlide.value + 4 >= blame_buildings.value.length) {
     currentSlide.value = 0;
   } else {
     currentSlide.value += 1;
@@ -101,7 +65,7 @@ const nextSlide = () => {
 // 이전 슬라이드로 이동 (총 매물 개수에 맞춰 순환)
 const prevSlide = () => {
   if (currentSlide.value === 0) {
-    currentSlide.value = blame_buildings.length - 4;
+    currentSlide.value = blame_buildings.value.length - 4;
   } else {
     currentSlide.value -= 1;
   }
@@ -168,14 +132,16 @@ const prevBuddySlide = () => {
                 >
                   <div class="card-img-top overflow-hidden img-container">
                     <img
-                      :src="buildings.imageUrl"
+                      :src="buildings.img"
                       class="img-fluid img-custom"
                       :alt="blame_buildings.title"
                     />
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title">{{ buildings.title }}</h5>
-                    <p class="card-text">{{ buildings.description }}</p>
+                    <h5 class="card-title">
+                      매물{{ currentSlide + index + 1 }}
+                    </h5>
+                    <p class="card-text">{{ buildings.content }}</p>
                   </div>
                 </div>
               </div>
@@ -230,11 +196,9 @@ const prevBuddySlide = () => {
                     />
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title">
-                      {{ buddiz.blamedNickName }}
-                    </h5>
+                    <h5 class="card-title">{{ buddiz.blamedNickName }}</h5>
                     <!-- nickname -->
-                    <p class="card-text">{{ buddiz.content }}</p>
+                    <p class="card-text">{{ buddiz.blamedPersonality }}</p>
                     <!-- content-->
                   </div>
                 </div>
